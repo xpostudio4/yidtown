@@ -699,6 +699,8 @@ h2.resp-accordion {
 	display: inline-block;
 }
 .side-bar-left {
+  /* If wanna show the navbar, eliminate the display property altogether */
+  display: none !important;
 	width: 184px;
 	float: left;
 	border: 1px solid #ccccc8;
