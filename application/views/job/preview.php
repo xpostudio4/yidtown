@@ -1,7 +1,7 @@
 <script>console.log('view/job/preview.php')</script>
-<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css"> 
+<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css">
 
- 
+
 
 <script>
 
@@ -23,9 +23,9 @@
 
 <div class="container">
 
- <article class="page-content">  
+ <article class="page-content">
 
-    
+
 
  <section class="body" >
 
@@ -33,9 +33,9 @@
 
   <?php //echo $id;
 
-  //echo $post_mail;?>  
+  //echo $post_mail;?>
 
-    
+
 
 <?php $attributes = array('id' => 'addpost');
 
@@ -43,9 +43,9 @@
 
 				   ?>
 
-  <?php 
+  <?php
 
-  
+
 
 $query = $this->db->query("SELECT * FROM post WHERE id='".$id."'");
 
@@ -53,21 +53,20 @@ foreach ($query->result_array() as $row){
 
 	?>
 
-    
 
-    
+
+
 
     <div class="post_title"> <?php  echo $row['post_title']?><?php echo '( '.$this->citymod->fetch_single_city($row['geo_area']).' )'?><?php echo '( '.$row['contact_phone'].' )'?></div>
 
     <br/>
 
-      <?php 
+      <?php
 
 	$this->db->select('*');
 
 				   $this->db->where('post_id', $id );
 
-				   $query = $this->db->get('images');
 
 				   $data = $query->result_array();
 
@@ -75,30 +74,7 @@ foreach ($query->result_array() as $row){
 
 				   ?>
 
-   <?php if(empty($data) ){?>
-
-   <div class="big_image"><img src="<?php echo JEWISH_URL;?>/images/not-available.png" height="350" width="500"/></div>
-
-  <?php }else{ ?>                 
-
-	        <?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."' LIMIT 0,1");  
-
-			 
-
-                foreach ($q->result_array() as $img){ 
-
-             // print_r($q);
-
-?>
-
-    <div class="big_image"><img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="350" width="500"/></div>
-
-    
-
-<?php	} 
-
-  }?>
-
+   
     <div class="meta_data">
 
 
@@ -187,9 +163,9 @@ foreach ($query->result_array() as $row){
 
   </tr><?php */?>
 
- 
 
-    
+
+
 
     </table>
 
@@ -199,21 +175,21 @@ foreach ($query->result_array() as $row){
 
     <div class="thumb">
 
-<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");  
+<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");
 
 foreach ($q->result_array() as $img){ ?>
 
      <img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="50" width="50" class="images"/>
 
- <?php } ?>  
+ <?php } ?>
 
- 	</div>  
+ 	</div>
 
      <div style="clear:both;"></div>
 
      <div class="post_content"><?php echo $row['post_content']?></div>
 
- <?php } ?> 
+ <?php } ?>
 
  <input type="hidden" name="post_id" value="<?php echo $id;?>"/>
 
@@ -221,19 +197,19 @@ foreach ($q->result_array() as $img){ ?>
 
  <input type="hidden" name="type" value="job"/>
 
- <?php $qm= $this->db->query("SELECT `status` FROM post WHERE id='".$id."'"); 
+ <?php $qm= $this->db->query("SELECT `status` FROM post WHERE id='".$id."'");
 
- foreach ($qm->result_array() as $status){ 
+ foreach ($qm->result_array() as $status){
 
 if($status['status']!=1){ ?>
 
   <span class="next-button">
 
- <input type="submit" value="Publish" class="publish" />   
+ <input type="submit" value="Publish" class="publish" />
 
  </span>
 
-<?php 
+<?php
 
 }
 
@@ -251,7 +227,7 @@ if($status['status']!=1){ ?>
 
 
 
- ?>   
+ ?>
 
 </div>
 

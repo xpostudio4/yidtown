@@ -3,7 +3,7 @@
 
 <script src="<?php echo JEWISH_URL;?>/js/jquery.maskedinput.js" type="text/javascript"></script>
 
-<div class="container"> 
+<div class="container">
 
 <article class="page-content">
 
@@ -45,17 +45,17 @@ $(document).ready(function() {
 
 	var fields=$('.event_cat').find('input[type="checkbox"]:checked');
 
-    if (fields.length== 0) 
+    if (fields.length== 0)
 
-    { 
+    {
 
         $('.select-event').css({'border':'3px solid red','color':'red'});
 
 		$('.select-event').html('Select at least one Job Feature, Click Here');
 
-       kaushik.preventDefault(); 
+       kaushik.preventDefault();
 
-    } 
+    }
 
 
 
@@ -71,9 +71,9 @@ $(document).ready(function() {
 
 });
 
-</script> 
+</script>
 
-<?php //echo $parent_id.'---'.$child_id;?> 
+<?php //echo $parent_id.'---'.$child_id;?>
 
 <section class="body">
 
@@ -85,9 +85,9 @@ $(document).ready(function() {
 
         <div class="posting fields">
 
-           
 
-                
+
+
 
 <div class="main-area">Contact Information</div>
 
@@ -99,31 +99,31 @@ $(document).ready(function() {
 
                             <input type="text" value="" name="contact_name" id="contact_name" size="16" maxlength="32" tabindex="1">
 
-                        </label>          
+                        </label>
 
                              <label >
 
-                            <div class="label">Phone</div> 
+                            <div class="label">Phone</div>
 
 <input type="text" class="std" value=""  pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" placeholder="(555) 555-1212" >
 
-                        </label>   
+                        </label>
 
                     </div>
 
-                    <div class="top-area">            
+                    <div class="top-area">
 
-                            <label >   
+                            <label >
 
-                     <div class="label">Email</div>                    
+                     <div class="label">Email</div>
 
                     <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off" required="required">
 
                      </label>
 
-                            <label >   
+                            <label >
 
-                     <div class="label">Confirm Email</div>    
+                     <div class="label">Confirm Email</div>
 
                     <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" required="required">
 
@@ -133,11 +133,11 @@ $(document).ready(function() {
 
                      <div style="clear:both;"></div>
 
-        <input type="hidden" value="<?php ?>" name="user_id"  />  
+        <input type="hidden" value="<?php ?>" name="user_id"  />
 
     <?php /*?><input type="hidden" value="<?php echo $child_id;?>" name="object_id"  />  <?php */?>
 
-                    
+
 
                     <!--<span id="oiab">
 
@@ -159,11 +159,11 @@ $(document).ready(function() {
 
                 <input type="radio" name="Privacy" value="P" id="P" tabindex="1">
 
-                show my real email address 
+                show my real email address
 
             </label>
 
-        
+
 
 
 
@@ -177,9 +177,9 @@ $(document).ready(function() {
 
 </span>-->
 
-               
 
-             
+
+
 
 
 
@@ -205,7 +205,7 @@ $(document).ready(function() {
 
                 </div>
 
-                 <div class="top-area"> 
+                 <div class="top-area">
 
                      <label ><div class="label">City</div>
 
@@ -267,7 +267,7 @@ $(document).ready(function() {
 
 				</div>
 
-           
+
 
 
 
@@ -295,99 +295,9 @@ $(document).ready(function() {
 
   <input tabindex="1" type="checkbox" value="yes" name="job_offered">job offered</label>
 
-       <?php /*?> <label>
-
-        <input type="hidden" name="telecom" value="" />
-
-    <input tabindex="1" type="checkbox" id="tc" name="telecom" value="yes">
-
-        telecommuting ok</label>
-
-    <label>
-
-     <input type="hidden" name="part-time" value="" />
-
-    <input tabindex="1" type="checkbox" id="pt" name="part-time" value="yes">
-
-        part-time</label>
-
-    <label>
-
-    <input type="hidden" name="contract" value="" />
-
-    <input tabindex="1" type="checkbox" id="ct" name="contract" value="yes">
-
-        contract</label>
-
-    <label>
-
-    <input type="hidden" name="non-profit" value="" />
-
-    <input tabindex="1" type="checkbox" id="np" name="non-profit" value="yes">
-
-        non-profit organization</label>
-
-    <label>
-
-    <input type="hidden" name="internship" value="" />
-
-    <input tabindex="1" type="checkbox" id="in" name="internship" value="yes">
-
-        internship</label>
-
-<br>
-
-    <label>
-
-    <input type="hidden" name="direct_contact" value="" />
-
-    <input tabindex="1" type="checkbox" id="ro" name="direct_contact" value="ok">
-
-        direct contact by recruiters is ok</label>
-
-<br>
-
-    <label>
-
-    <input type="hidden" name="disabilities" value="" />
-
-        <input tabindex="1" type="checkbox" name="disabilities" value="ok"> 
-
-        ok to highlight this job opening for persons with disabilities
-
-        </label><?php */?>
-
-            </div>
-
-            </div>
 
 
 
-            
-
-
-
-     
-
-            
-
-            <div id="uploader">
-
-            <h5 class="upl">Upload Job Related Images</h5><br />
-
-<input name="post_images[]" type="file" id="uploader" multiple="multiple">
-
-<em> you can select multiple image by pressing Ctrl</em>
-
-</div>
-
-        </div>
-
- <input type="hidden" name="cat_id" value="<?php echo $child_id?>"/>         
-
-       <input type="submit" value="Create Post Preview" name="submtadd"/>
-
-        
 
 <?php echo form_close(); ?>
 

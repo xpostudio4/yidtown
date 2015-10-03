@@ -3,7 +3,7 @@
 
 <script src="<?php echo JEWISH_URL;?>/js/jquery.maskedinput.js" type="text/javascript"></script>
 
-<div class="container"> 
+<div class="container">
 
 <article class="page-content">
 
@@ -49,7 +49,7 @@
 
             <div class="main-area">Contact Information</div>
 
- <div class="top-area">  
+ <div class="top-area">
 
 <label>
 
@@ -63,19 +63,19 @@
 
 <div class="label">Phone Number</div>
 
-<input type="text" class="str" value="<?php echo $data[0]['contact_phone']?>" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" required="required" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
+<input type="text" class="str" value="<?php echo $data[0]['contact_phone']?>" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}">
 
 </label>
 
- </div>               
+ </div>
 
 
 
- <div class="top-area">      
+ <div class="top-area">
 
-<label > 
+<label >
 
-<div class="label">Email</div>                  
+<div class="label">Email</div>
 
 <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off"
 
@@ -91,19 +91,19 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 </label>
 
-</div>  
+</div>
 
  <div style="clear:both;"></div>
 
-<input type="hidden" name="id" value="<?php echo $p_id;?>"  /> 
+<input type="hidden" name="id" value="<?php echo $p_id;?>"  />
 
-<input type="hidden" value="<?php ?>" name="user_id"  />  
+<input type="hidden" value="<?php ?>" name="user_id"  />
 
-<input type="hidden" value="<?php echo $data[0]['id']?>" name="post_id"  />         
+<input type="hidden" value="<?php echo $data[0]['id']?>" name="post_id"  />
 
-<?php /*?><input type="hidden" name="object_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  /> 
+<?php /*?><input type="hidden" name="object_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  />
 
-<input type="hidden" name="cat_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  />          <?php */?>  
+<input type="hidden" name="cat_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  />          <?php */?>
 
 <script>
 
@@ -123,17 +123,17 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 	var fields=$('.event_cat').find('input[type="checkbox"]:checked');
 
-    if (fields.length== 0) 
+    if (fields.length== 0)
 
-    { 
+    {
 
         $('.select-event').css({'border':'3px solid red','color':'red'});
 
 		$('.select-event').html('Select at least one Job Feature, Click Here');
 
-       kaushik.preventDefault(); 
+       kaushik.preventDefault();
 
-    } 
+    }
 
 
 
@@ -149,7 +149,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 });
 
- </script>  
+ </script>
 
  <p>&nbsp;</p>
 
@@ -157,7 +157,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
              <span id="main-area">Job Details</span>
 
-          		<div class="main-area-three">           
+          		<div class="main-area-three">
 
                 <label>
 
@@ -169,7 +169,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
                 </div>
 
-             <div class="top-area"> 
+             <div class="top-area">
 
                 <label>
 
@@ -193,7 +193,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
               </div>
 
-              <div class="top-area"> 
+              <div class="top-area">
 
                 <label>
 
@@ -203,7 +203,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
                 </label>
 
-              </div>  
+              </div>
 
               <div class="main-area-three">
 
@@ -217,7 +217,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
             <div style="clear:both;"></div>
 
-<?php  
+<?php
 
                    $this->db->select('*');
 
@@ -243,7 +243,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
                 </div>
 
-           <div class="main-area-three" style="margin-top: 144px;">     
+           <div class="main-area-three" style="margin-top: 144px;">
 
                 <label >
 
@@ -259,9 +259,9 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
  <div style="clear:both;"></div>
 
-        
 
-    
+
+
 
          <div class="main-area-three">
 
@@ -293,7 +293,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 	echo 'checked';
 
-}?>>job offered</label>                
+}?>>job offered</label>
 
 <?php /*?><label>
 
@@ -379,7 +379,7 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 	echo 'checked';
 
-}?>> 
+}?>>
 
         ok to highlight this job opening for persons with disabilities
 
@@ -389,105 +389,21 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
  </div>
 
- </div>        
-
-       
-
-            
-
-            <div id="uploader">
-
-            <h5 class="upl">Update Job Images</h5><br />
-
-<input name="post_images[]" type="file" id="uploader" multiple="multiple">
-
-<em> you can select multiple image by pressing Ctrl</em>
-
-</div>
-
-<script>
-
-$(document).ready(function() {
-
-		$(".uploaded >a").on('click',function(e){
-
-			e.preventDefault();
-
-			var getval=$(this).attr('name');
-
-			var imgname=$(this).attr('data');
-
-			//alert(imgname);
-
-				$.ajax({
-
-                      url: '<?php echo JEWISH_URL;?>'+'/post/delete_image/?ded='+getval+'&imgurl='+imgname,
-
-                      type: 'POST',
-
-                      success: function(data){
-
-						  			
-
-									alert('Image Deleted');
-
-									location.reload();
-
-		                    				// $(".list-v").html(data)
-
-									
-
-                             }
-
-                  });
+ </div>
 
 
 
-			})
-
-	});
-
-</script>
-
-<div class="uploaded">
-
-<h1>Uploaded Image</h1>
 
 
+  </div>
 
-<?php
-
- 
-
-                   $this->db->select('*');
-
-				   $this->db->where('post_id', $p_id );
-
-				   $query = $this->db->get('images');
-
-				   $data2 = $query->result_array();
-
-				   //echo $this->db->last_query();
-
-					foreach( $data2 as $l ){
-
-?>
-
-<img src="<?php echo JEWISH_URL;?>/upload/<?php echo $l['img']?>"  height="200" width="200" /><a href="#" data="<?php echo $l['img']?>" name="<?php echo $l['id'];?>" title="Delete this Image"><span class="del">X</span>
-
-</a><?php } ?>
-
-
-
-  </div> 
-
-  <p>&nbsp;</p>       
+  <p>&nbsp;</p>
 
        <input type="submit" value="Update this post" name="submtadd"/>
 
- 
 
-        </div>       
+
+        </div>
 
 <?php echo form_close(); ?>
 

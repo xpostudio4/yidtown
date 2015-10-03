@@ -1,7 +1,7 @@
  <script>console.log('view/job/singlepost.php')</script>
-<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css"> 
+<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css">
 
- 
+
 
 <script>
 
@@ -23,13 +23,13 @@
 
 		history.back(1);
 
-		}		
+		}
 
 </script>
 
-  <div class="container"> 
+  <div class="container">
 
-<article class="page-content">  
+<article class="page-content">
 
 <ul class="page-nav">
 
@@ -37,21 +37,21 @@
 
     <li> > <a href="" onclick="go_back();">Back to Listing</a></li>
 
-  </ul>    
+  </ul>
 
  <section class="body" >
 
  <div class="posting">
 
-  <?php //echo $id;?>  
+  <?php //echo $id;?>
 
-    
+
 
 <form method="">
 
-  <?php 
+  <?php
 
-  
+
 
 $query = $this->db->query("SELECT * FROM post WHERE id='".$id."'");
 
@@ -59,51 +59,25 @@ foreach ($query->result_array() as $row){
 
 	?>
 
-    
 
-    
+
+
 
     <div class="post_title"><?php  echo $row['post_title']?><?php echo '( '.$this->citymod->fetch_single_city($row['geo_area']).' )'?><?php echo '( '.$row['contact_phone'].' )'?></div>
 
     <br/>
 
-      <?php 
+      <?php
 
 	$this->db->select('*');
 
 				   $this->db->where('post_id', $id );
-
-				   $query = $this->db->get('images');
 
 				   $data = $query->result_array();
 
 				   //print_r($data);
 
 				   ?>
-
-   <?php if(empty($data) ){?>
-
-   <div class="big_image"><img src="<?php echo JEWISH_URL;?>/images/not-available.png" height="350" width="500"/></div>
-
-  <?php }else{ ?>                 
-
-	        <?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."' LIMIT 0,1");  
-
-			 
-
-                foreach ($q->result_array() as $img){ 
-
-             // print_r($q);
-
-?>
-
-    <div class="big_image"><img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="350" width="500"/></div>
-
-    
-
-<?php	} 
-
-  }?>
 
     <div class="meta_data">
 
@@ -193,9 +167,9 @@ foreach ($query->result_array() as $row){
 
   </tr><?php */?>
 
- 
 
-    
+
+
 
     </table>
 
@@ -205,31 +179,31 @@ foreach ($query->result_array() as $row){
 
     <div class="thumb">
 
-<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");  
+<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");
 
 foreach ($q->result_array() as $img){ ?>
 
      <img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="50" width="50" class="images"/>
 
- <?php } ?>  
+ <?php } ?>
 
- 	</div>  
+ 	</div>
 
      <div style="clear:both;"></div>
 
      <div class="post_content"><h2>Description</h2><?php echo $row['post_content']?></div>
 
- <?php } ?> 
+ <?php } ?>
 
-  
 
-</form>   
 
-  <?php 
+</form>
+
+  <?php
 
 			// $actual_link=JEWISH_URL.'/business_directory/review/'.$this->allencode->encode($p['id']);
 
-			 $user_log=$this->session->userdata('logged_in'); 
+			 $user_log=$this->session->userdata('logged_in');
 
 			 if(isset($user_log['user_id']) && !empty($user_log['user_id'])){
 
@@ -253,7 +227,7 @@ foreach ($q->result_array() as $img){ ?>
 
              <?php } ?>
 
-             <p id="msp"></p> 
+             <p id="msp"></p>
 
              <div class="private_msg" id="private_msgy" style="display:none;"> <h2>Message to Advertiser</h2>
 
@@ -271,7 +245,7 @@ foreach ($q->result_array() as $img){ ?>
 
               </form>
 
-                </div>    
+                </div>
 
 </div>
 
@@ -297,7 +271,7 @@ $(document).ready(function() {
 
 	   biswa.preventDefault();
 
-	   var other_data = $(this).serialize(); 
+	   var other_data = $(this).serialize();
 
 	   	$.ajax({
 
@@ -313,7 +287,7 @@ $(document).ready(function() {
 
 										$('#msp').html("Your message has sent to advertiser, check My Account for advertiser's reply.");
 
-										$('#msgbox').val(' ');	
+										$('#msgbox').val(' ');
 
 									}else if(data=='have_comment'){
 
@@ -321,7 +295,7 @@ $(document).ready(function() {
 
 										$('#msp').html("Your have made a comment to this advertiser, check My Account .");
 
-										$('#msgbox').val(' ');										
+										$('#msgbox').val(' ');
 
 									}
 
