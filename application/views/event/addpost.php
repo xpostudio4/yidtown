@@ -49,23 +49,23 @@ $('.select-event').on('click',function(){
 
 	});
 
-  
+
 
 /*  $('#addpost').submit(function(kaushik){
 
 	var fields=$('.event_cat').find('input[type="checkbox"]:checked');
 
-    if (fields.length== 0) 
+    if (fields.length== 0)
 
-    { 
+    {
 
         $('.select-event').css({'border':'3px solid red','color':'red'});
 
 		$('.select-event').html('Select at least one Event Fature, Click Here');
 
-       kaushik.preventDefault(); 
+       kaushik.preventDefault();
 
-    } 
+    }
 
 
 
@@ -85,9 +85,9 @@ $('.select-event').on('click',function(){
 
 });
 
-</script> 
+</script>
 
-<div class="container"> 
+<div class="container">
 
 
 
@@ -95,7 +95,7 @@ $('.select-event').on('click',function(){
 
 <ul class="page-nav">
 
-    <li><a href="<?php echo JEWISH_URL;?>">Homepage</a></li>  
+    <li><a href="<?php echo JEWISH_URL;?>">Homepage</a></li>
 
     <li> > <a href="<?php echo JEWISH_URL;?>/classified/search/event/">Event</a></li>
 
@@ -111,7 +111,7 @@ $('.select-event').on('click',function(){
 
 				   ?>
 
-                  
+
 
         <div class="posting fields">
 
@@ -125,31 +125,31 @@ $('.select-event').on('click',function(){
 
                             <input type="text" value="" name="contact_name" id="contact_name" size="16" maxlength="32" tabindex="1">
 
-                        </label>          
+                        </label>
 
                              <label >
 
-                            <div class="label">Phone</div> 
+                            <div class="label">Phone</div>
 
 <input type="text" class="std" value=""  pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" placeholder="(555) 555-1212" >
 
-                        </label>   
+                        </label>
 
                     </div>
 
-                    <div class="top-area">            
+                    <div class="top-area">
 
-                            <label >   
+                            <label >
 
-                     <div class="label">Email</div>                    
+                     <div class="label">Email</div>
 
                     <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off" required="required">
 
                      </label>
 
-                            <label >   
+                            <label >
 
-                     <div class="label">Confirm Email</div>    
+                     <div class="label">Confirm Email</div>
 
                     <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" required="required">
 
@@ -159,11 +159,11 @@ $('.select-event').on('click',function(){
 
                      <div style="clear:both;"></div>
 
-        <input type="hidden" value="<?php ?>" name="user_id"  />  
+        <input type="hidden" value="<?php ?>" name="user_id"  />
 
     <?php /*?><input type="hidden" value="<?php echo $child_id;?>" name="object_id"  />  <?php */?>
 
-                   
+
 
 
 
@@ -173,7 +173,7 @@ $('.select-event').on('click',function(){
 
     <label><input name="contact_text_ok" id="contact_text_ok" type="checkbox" value="1">by text</label></div>-->
 
-           
+
                 <span  id="main-area" class="main-add-post">Event Details</span>
 
 				<div class="main-area-two">
@@ -186,7 +186,7 @@ $('.select-event').on('click',function(){
 
             	</label>
 
-         		
+
 
                    <label> <div class="label">Start Month</div>
 
@@ -230,19 +230,19 @@ $('.select-event').on('click',function(){
 
                     <?php } ?>
 
-                    </select> 
+                    </select>
 
                     </label>
 
-   
+
 
                    <label> <div class="label">Event Duration</div>
 
-        
 
-  
 
-            
+
+
+
 
                 <select name="event_duration">
 
@@ -274,11 +274,11 @@ $('.select-event').on('click',function(){
 
                     <option value="14">14 days</option>
 
-                </select> 
+                </select>
 
             </label>
 
-        
+
 
             	</div>
 
@@ -293,7 +293,7 @@ $('.select-event').on('click',function(){
 
                 </div>
 
-                 <div class="top-area"> 
+                 <div class="top-area">
 
                      <label ><div class="label">City</div>
 
@@ -349,129 +349,14 @@ $('.select-event').on('click',function(){
 
 				</div>
 
-                <div class="main-area-three">
 
-                <label>
 
-                        <span class="label">Event Feature</span>
-
-                   <div class="select-event">Click here to select</div>
-
-                </label>
-
-                <div class="event_cat" style="display:block;">
-
-        <label class="std event_attr_label" for="event_art" style="min-width: 167px;">
-
-        <input type="hidden" name="event_advertisement" value="" />
-
-        <input id="event_art" class="event_attr" type="checkbox" value="yes" name="event_advertisement">Event Advertisement</label>        
-
-        <label class="std event_attr_label" for="event_art" style="min-width: 167px;">
-
-        <input type="hidden" name="event_art" value="" />
-
-        <input id="event_art" class="event_attr" type="checkbox" value="yes" name="event_art">Art/Film</label>
-
-         <label class="std event_attr_label" for="event_career" style="min-width: 167px;">
-
-         <input type="hidden" name="event_career" value="" />
-
-         <input id="event_career" class="event_attr" type="checkbox" value="yes" name="event_career">career</label> 
-
-         <label class="std event_attr_label" for="event_fundraiser_vol" style="min-width: 167px;">
-
-          <input type="hidden" name="event_charitable" value="" />
-
-         <input id="event_fundraiser_vol" class="event_attr" type="checkbox" value="yes" name="event_charitable">Charity</label>
-
-          <label class="std event_attr_label" for="event_athletics" style="min-width: 167px;">
-
-          <input type="hidden" name="event_competition" value="" />
-
-          <input id="event_athletics" class="event_attr" type="checkbox" value="yes" name="event_competition">Competition</label> 
-
-          <label class="std event_attr_label" for="event_dance" style="min-width: 167px;">
-
-          <input type="hidden" name="event_dance" value="" />
-
-          <input id="event_dance" class="event_attr" type="checkbox" value="yes" name="event_dance">Dance</label> 
-
-          <label class="std event_attr_label" for="event_festival" style="min-width: 167px;">
-
-          <input type="hidden" name="event_festival" value="" />
-
-          <input id="event_festival" class="event_attr" type="checkbox" value="yes" name="event_festival">Festival/Fair</label> 
-
-          <label class="std event_attr_label" for="event_fitness_wellness" style="min-width: 167px;">
-
-          <input type="hidden" name="event_fitness_wellness" value="" />
-
-          <input id="event_fitness_wellness" class="event_attr" type="checkbox" value="yes" name="event_fitness_wellness">Fitness/Health</label> 
-
-          <label class="std event_attr_label" for="event_food" style="min-width: 167px;">
-
-          <input type="hidden" name="event_food" value="" />
-
-          <input id="event_food" class="event_attr" type="checkbox" value="yes" name="event_food">Food/Drink</label> 
-
-          <!--<label class="std event_attr_label" for="event_free" style="min-width: 167px;">
-
-          <input id="event_free" class="event_attr" type="checkbox" value="yes" name="event_free">free</label>-->
-
-           <label class="std event_attr_label" for="event_kidfriendly" style="min-width: 167px;">
-
-           <input type="hidden" name="event_kidfriendly" value="" />
-
-           <input id="event_kidfriendly" class="event_attr" type="checkbox" value="yes" name="event_kidfriendly">Kid Friendly</label> 
-
-           <label class="std event_attr_label" for="event_literary" style="min-width: 167px;">
-
-           <input type="hidden" name="event_literary" value="" />
-
-           <input id="event_literary" class="event_attr" type="checkbox" value="yes" name="event_literary">Literary</label> 
-
-           <label class="std event_attr_label" for="event_music" style="min-width: 167px;">
-
-           <input type="hidden" name="event_music" value="" />
-
-           <input id="event_music" class="event_attr" type="checkbox" value="yes" name="event_music">Music</label>
-
-            <label class="std event_attr_label" for="event_outdoor" style="min-width: 167px;">
-
-             <input type="hidden" name="event_outdoor" value="" />
-
-            <input id="event_outdoor" class="event_attr" type="checkbox" value="yes" name="event_outdoor">Outdoor</label>
-
-             <!--<label class="std event_attr_label" for="event_sale" style="min-width: 167px;">
-
-             <input id="event_sale" class="event_attr" type="checkbox" value="yes" name="event_sale">sale</label>--> 
-
-             <label class="std event_attr_label" for="event_singles" style="min-width: 167px;">
-
-             <input type="hidden" name="event_singles" value="" />
-
-             <input id="event_singles" class="event_attr" type="checkbox" value="yes" name="event_singles">Singles</label> 
-
-             <label class="std event_attr_label" for="event_geek" style="min-width: 167px;">
-
-             <input type="hidden" name="event_geek" value="" />
-
-             <input id="event_geek" class="event_attr" type="checkbox" value="yes" name="event_geek">Technology</label>
-
-            </div>
-
-            </div>
-
-           
-
-   
 
 
 
             <div class="row fields">
 
-<p>&nbsp;</p>            
+<p>&nbsp;</p>
 
             <div id="uploader">
 
@@ -487,11 +372,11 @@ $('.select-event').on('click',function(){
 
         </div>
 
- <input type="hidden" name="cat_id" value="<?php echo $child_id?>"/>         
+ <input type="hidden" name="cat_id" value="<?php echo $child_id?>"/>
 
        <input type="submit" value="Create Post Preview" name="submtadd"/>
 
-        
+
 
 <?php echo form_close(); ?>
 

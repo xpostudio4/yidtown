@@ -3,7 +3,7 @@
 
 <script src="<?php echo JEWISH_URL;?>/js/jquery.maskedinput.js" type="text/javascript"></script>
 
-<div class="container"> 
+<div class="container">
 
 <article class="page-content">
 
@@ -65,23 +65,23 @@ $(document).ready(function() {
 
 	});
 
-  
+
 
   $('#addpost').submit(function(kaushik){
 
 	var fields=$('.event_cat').find('input[type="checkbox"]:checked');
 
-    if (fields.length== 0) 
+    if (fields.length== 0)
 
-    { 
+    {
 
         $('.select-event').css({'border':'3px solid red','color':'red'});
 
 		$('.select-event').html('Select at least one Event Fature, Click Here');
 
-       kaushik.preventDefault(); 
+       kaushik.preventDefault();
 
-    } 
+    }
 
 
 
@@ -97,17 +97,17 @@ $(document).ready(function() {
 
 	 });
 
-</script>                  
+</script>
 
 
 
-       
 
-           
 
-      
 
-  
+
+
+
+
 
 
 
@@ -135,11 +135,11 @@ $(document).ready(function() {
 
                     </div>
 
-                    <div class="top-area">                       
+                    <div class="top-area">
 
-                     <label>     
+                     <label>
 
-<div class="label">Email</div>                
+<div class="label">Email</div>
 
 <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off"
 
@@ -147,33 +147,33 @@ value="<?php echo $data[0]['c_email']?>">
 
 </label>
 
-                     <label>   
+                     <label>
 
-<div class="label">Confirm Email</div>      
+<div class="label">Confirm Email</div>
 
 <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" value="<?php echo $data[0]['c_email']?>">
 
- </label>    
+ </label>
 
-                   </div> 
+                   </div>
 
                     <div style="clear:both;"></div>
 
-        <input type="hidden" value="<?php ?>" name="user_id"  />  
+        <input type="hidden" value="<?php ?>" name="user_id"  />
 
-    <input type="hidden" value="<?php echo $data[0]['id']?>" name="post_id"  />  
+    <input type="hidden" value="<?php echo $data[0]['id']?>" name="post_id"  />
 
- <input type="hidden" name="id" value="<?php echo $p_id;?>"  />   
+ <input type="hidden" name="id" value="<?php echo $p_id;?>"  />
 
 <?php /*?>  <input type="hidden" name="object_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  />
 
-  <input type="hidden" name="cat_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  /> <?php */?>   
+  <input type="hidden" name="cat_id" value="<?php echo $this->postmod->get_catid_by_postid($p_id);?>"  /> <?php */?>
 
-              
 
-          <div class="main-area-two"> 
 
-  
+          <div class="main-area-two">
+
+
 
                <label class="date-start"><div class="label">Start Date</div>
 
@@ -181,7 +181,7 @@ value="<?php echo $data[0]['c_email']?>">
 
             	</label>
 
-         		
+
 
                 <label><div class="label">Start month</div>
 
@@ -225,7 +225,7 @@ value="<?php echo $data[0]['c_email']?>">
 
                     <?php } ?>
 
-                    </select> 
+                    </select>
 
                     </label>
 
@@ -261,7 +261,7 @@ value="<?php echo $data[0]['c_email']?>">
 
                     <option value="14">14 days</option>
 
-                </select> 
+                </select>
 
 	        </label>
 
@@ -283,7 +283,7 @@ value="<?php echo $data[0]['c_email']?>">
 
                 </label>
 
-             </div>   
+             </div>
 
               <div class="top-area">
 
@@ -345,7 +345,7 @@ value="<?php echo $data[0]['c_email']?>">
 
 
 
-<?php  
+<?php
 
                    $this->db->select('*');
 
@@ -361,149 +361,25 @@ value="<?php echo $data[0]['c_email']?>">
 
 
 
-            <div class="main-area-three">
-
-                <label>
-
-                        <span class="label">Event Feature</span>
-
-                   <div class="select-event">Click here to select</div>
-
-                </label>
-
-                <div class="event_cat" style="display:block;">
-
-          <label class="std event_attr_label" for="event_art" style="min-width: 167px;">
-
-          <input type="hidden" name="event_advertisement" value="" />
-
-        <input id="event_art" class="event_attr" type="checkbox" value="yes" name="event_advertisement" <?php if($data[0]['event_advertisement']=='yes' ){ echo 'checked';}?>>Event Advertisement</label>               
-
-        <label class="std event_attr_label" for="event_art" style="min-width: 167px;">
-
-        <input type="hidden" name="event_art" value="" />
-
-        <input id="event_art" class="event_attr" type="checkbox" value="yes" name="event_art"  <?php if($data[0]['event_art']=='yes' ){ echo 'checked';}?>>art/film</label>
-
-         <label class="std event_attr_label" for="event_career" style="min-width: 167px;">
-
-         <input type="hidden" name="event_career" value="" />
-
-         <input id="event_career" class="event_attr" type="checkbox" value="yes" name="event_career"  <?php if($data[0]['event_career']=='yes' ){ echo 'checked';}?>>career</label> 
-
-         <label class="std event_attr_label" for="event_fundraiser_vol" style="min-width: 167px;">
-
-         <input type="hidden" name="event_charitable" value="" />
-
-         <input id="event_fundraiser_vol" class="event_attr" type="checkbox" value="yes" name="event_charitable"  <?php if($data[0]['event_charitable']=='yes' ){ echo 'checked';}?>>charitable</label>
-
-          <label class="std event_attr_label" for="event_athletics" style="min-width: 167px;">
-
-          <input type="hidden" name="event_competition" value="" />
-
-          <input id="event_athletics" class="event_attr" type="checkbox" value="yes" name="event_competition"  <?php if($data[0]['event_competition']=='yes' ){ echo 'checked';}?>>competition</label> 
-
-          <label class="std event_attr_label" for="event_dance" style="min-width: 167px;">
-
-          <input type="hidden" name="event_dance" value="" />
-
-          <input id="event_dance" class="event_attr" type="checkbox" value="yes" name="event_dance"  <?php if($data[0]['event_dance']=='yes' ){ echo 'checked';}?>>dance</label> 
-
-          <label class="std event_attr_label" for="event_festival" style="min-width: 167px;">
-
-          <input type="hidden" name="event_festival" value="" />
-
-          <input id="event_festival" class="event_attr" type="checkbox" value="yes" name="event_festival"  <?php if($data[0]['event_festival']=='yes' ){ echo 'checked';}?>>fest/fair</label> 
-
-          <label class="std event_attr_label" for="event_fitness_wellness" style="min-width: 167px;">
-
-          <input type="hidden" name="event_fitness_wellness" value="" />
-
-          <input id="event_fitness_wellness" class="event_attr" type="checkbox" value="yes" name="event_fitness_wellness"  <?php if($data[0]['event_fitness_wellness']=='yes' ){ echo 'checked';}?>>fitness/health</label> 
-
-          <label class="std event_attr_label" for="event_food" style="min-width: 167px;">
-
-          <input type="hidden" name="event_food" value="" />
-
-          <input id="event_food" class="event_attr" type="checkbox" value="yes" name="event_food"  <?php if($data[0]['event_food']=='yes' ){ echo 'checked';}?>>food/drink</label> 
-
-          <label class="std event_attr_label" for="event_free" style="min-width: 167px;">
-
-          <input type="hidden" name="event_free" value="" />
-
-          <input id="event_free" class="event_attr" type="checkbox" value="yes" name="event_free"  <?php if($data[0]['event_free']=='yes' ){ echo 'checked';}?>>free</label>
-
-           <label class="std event_attr_label" for="event_kidfriendly" style="min-width: 167px;">
-
-           <input type="hidden" name="event_kidfriendly" value="" />
-
-           <input id="event_kidfriendly" class="event_attr" type="checkbox" value="yes" name="event_kidfriendly"  <?php if($data[0]['event_kidfriendly']=='yes' ){ echo 'checked';}?>>kid friendly</label> 
-
-           <label class="std event_attr_label" for="event_literary" style="min-width: 167px;">
-
-           <input type="hidden" name="event_literary" value="" />
-
-           <input id="event_literary" class="event_attr" type="checkbox" value="yes" name="event_literary"  <?php if($data[0]['event_literary']=='yes' ){ echo 'checked';}?>>literary</label> 
-
-           <label class="std event_attr_label" for="event_music" style="min-width: 167px;">
-
-           <input type="hidden" name="event_music" value="" />
-
-           <input id="event_music" class="event_attr" type="checkbox" value="yes" name="event_music"  <?php if($data[0]['event_music']=='yes' ){ echo 'checked';}?>>music</label>
-
-            <label class="std event_attr_label" for="event_outdoor" style="min-width: 167px;">
-
-            <input type="hidden" name="event_outdoor" value="" />
-
-            <input id="event_outdoor" class="event_attr" type="checkbox" value="yes" name="event_outdoor"  <?php if($data[0]['event_outdoor']=='yes' ){ echo 'checked';}?>>outdoor</label>
-
-             <label class="std event_attr_label" for="event_sale" style="min-width: 167px;">
-
-             <input type="hidden" name="event_sale" value="" />
-
-             <input id="event_sale" class="event_attr" type="checkbox" value="yes" name="event_sale"  <?php if($data[0]['event_sale']=='yes' ){ echo 'checked';}?>>sale</label> 
-
-             <label class="std event_attr_label" for="event_singles" style="min-width: 167px;">
-
-             <input type="hidden" name="event_singles" value="" />
-
-             <input id="event_singles" class="event_attr" type="checkbox" value="yes" name="event_singles"  <?php if($data[0]['event_singles']=='yes' ){ echo 'checked';}?>>singles</label> 
-
-             <label class="std event_attr_label" for="event_geek" style="min-width: 167px;">
-
-             <input type="hidden" name="event_geek" value="" />
-
-             <input id="event_geek" class="event_attr" type="checkbox" value="yes" name="event_geek"  <?php if($data[0]['event_geek']=='yes' ){ echo 'checked';}?>>tech</label>
-
- </div>
-
- </div>
-
-
-
-   
-
-
-
             <div class="row fields">
 
-                  
+
 
             </div>
 
 
 
-            
+
 
 
 
             <div class="row" id="copyAssign">
 
-                
+
 
             </div>
 
-            
+
 
             <div id="uploader">
 
@@ -537,7 +413,7 @@ $(document).ready(function() {
 
                       success: function(data){
 
-						  			
+
 
 									alert('Image Deleted');
 
@@ -545,7 +421,7 @@ $(document).ready(function() {
 
 		                    				// $(".list-v").html(data)
 
-									
+
 
                              }
 
@@ -567,7 +443,7 @@ $(document).ready(function() {
 
 <?php
 
- 
+
 
                    $this->db->select('*');
 
@@ -589,13 +465,13 @@ $(document).ready(function() {
 
 </div>
 
-        
 
-      <p>&nbsp;</p>    
+
+      <p>&nbsp;</p>
 
        <input type="submit" value="Update this post" name="submtadd"/>
 
-  </div>      
+  </div>
 
 <?php echo form_close(); ?>
 

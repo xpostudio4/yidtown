@@ -1,7 +1,7 @@
 <script>console.log('view/event/singlepost.php');</script>
-<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css"> 
+<link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/addpost.css">
 
- 
+
 
 <script>
 
@@ -27,7 +27,7 @@
 
 </script>
 
-<div class="container"> 
+<div class="container">
 
 <article class="page-content">
 
@@ -37,21 +37,21 @@
 
     <li> > <a href="" onclick="go_back();">Back to Listing</a></li>
 
-  </ul>  
+  </ul>
 
  <section class="body" >
 
  <div class="posting">
 
-  <?php //echo $id;?>  
+  <?php //echo $id;?>
 
-    
+
 
 <form method="">
 
-  <?php 
+  <?php
 
-  
+
 
 $query = $this->db->query("SELECT * FROM post WHERE id='".$id."'");
 
@@ -59,15 +59,15 @@ foreach ($query->result_array() as $row){
 
 	?>
 
-    
 
-    
+
+
 
     <div class="post_title"><?php  echo $row['post_title']?><?php echo '( '.$this->citymod->fetch_single_city($row['geo_area']).' )'?><?php echo '( '.$row['contact_phone'].' )'?></div>
 
     <br/>
 
-       <?php 
+       <?php
 
 	$this->db->select('*');
 
@@ -85,13 +85,13 @@ foreach ($query->result_array() as $row){
 
    <div class="big_image"><img src="<?php echo JEWISH_URL;?>/images/not-available.png" height="350" width="500"/></div>
 
-  <?php }else{ ?>                 
+  <?php }else{ ?>
 
-	        <?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."' LIMIT 0,1");  
+	        <?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."' LIMIT 0,1");
 
-			 
 
-                foreach ($q->result_array() as $img){ 
+
+                foreach ($q->result_array() as $img){
 
              // print_r($q);
 
@@ -99,9 +99,9 @@ foreach ($query->result_array() as $row){
 
     <div class="big_image"><img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="350" width="500"/></div>
 
-    
 
-<?php	} 
+
+<?php	}
 
   }?>
 
@@ -111,147 +111,6 @@ foreach ($query->result_array() as $row){
 
 
 
-<table width="" border="0" cellspacing="0" class="gradienttable">
-
- <tr>
-
-    <td><p>Event Advertisement</p></td>
-
-    <td><p><?php  if($this->postmod->get_post_meta_event($id,'event_advertisement')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_advertisement');}?></p></td>
-
-  </tr>
-
-   <tr>
-
-    <td><p>Art/film</p></td>
-
-    <td><p><?php  if($this->postmod->get_post_meta_event($id,'event_art')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_art');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Career</p></td>
-
-    <td><p> <?php if($this->postmod->get_post_meta_event($id,'event_career')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_career');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Charitable</p></td>
-
-    <td><p><?php  if($this->postmod->get_post_meta_event($id,'event_charitable')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_charitable');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Competition</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_competition')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_competition');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Dance</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_dance')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_dance');}
-
-	?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Fest/fair</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_festival')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_festival');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Fitness/health</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_fitness_wellness')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_fitness_wellness');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Food/drink</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_food')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_food');}?></p></td>
-
-  </tr>
-
- <tr>
-
-    <td><p>Free</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_free')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_free');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Kid friendly</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_kidfriendly')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_kidfriendly');}?></p></td>
-
-  </tr>
-
-   <tr>
-
-    <td><p>Literary</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_literary')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_literary');}?></p></td>
-
-  </tr>
-
-   <tr>
-
-    <td><p>Music</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_music')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_music');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Outdoor</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_outdoor')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_outdoor');}?></p></td>
-
-  </tr>
-
-    <tr>
-
-    <td><p>Sale</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_sale')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_sale');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Singles</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_singles')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_singles');}?></p></td>
-
-  </tr>
-
-  <tr>
-
-    <td><p>Tech</p></td>
-
-    <td><p><?php if($this->postmod->get_post_meta_event($id,'event_geek')=='yes'){ echo $this->postmod->get_post_meta_event($id,'event_geek');}?></p></td>
-
-  </tr>
-
-</table>
 
     </div>
 
@@ -259,15 +118,15 @@ foreach ($query->result_array() as $row){
 
     <div class="thumb">
 
-<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");  
+<?php $q= $this->db->query("SELECT * FROM images WHERE post_id='".$id."'");
 
 foreach ($q->result_array() as $img){ ?>
 
      <img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img['img'];?>" height="50" width="50" class="images"/>
 
- <?php } ?>  
+ <?php } ?>
 
- 	</div>  
+ 	</div>
 
      <div style="clear:both;"></div>
 
@@ -279,7 +138,7 @@ foreach ($q->result_array() as $img){ ?>
 
      <td><p>Event Date</p></td>
 
-     <td><p><?php echo $this->postmod->get_post_meta_event($id,'start_date')?> / 
+     <td><p><?php echo $this->postmod->get_post_meta_event($id,'start_date')?> /
 
      <?php echo $this->postmod->get_post_meta_event($id,'start_month')?></p></td>
 
@@ -299,17 +158,17 @@ foreach ($q->result_array() as $img){ ?>
 
      <div class="post_content"><h2>Description</h2><?php echo $row['post_content']?></div>
 
- <?php } ?> 
+ <?php } ?>
 
-  
 
-</form>  
 
-  <?php 
+</form>
+
+  <?php
 
 			// $actual_link=JEWISH_URL.'/business_directory/review/'.$this->allencode->encode($p['id']);
 
-			 $user_log=$this->session->userdata('logged_in'); 
+			 $user_log=$this->session->userdata('logged_in');
 
 			 if(isset($user_log['user_id']) && !empty($user_log['user_id'])){
 
@@ -333,7 +192,7 @@ foreach ($q->result_array() as $img){ ?>
 
              <?php } ?>
 
-             <p id="msp"></p> 
+             <p id="msp"></p>
 
              <div class="private_msg" id="private_msgy" style="display:none;"> <h2>Message to Advertiser</h2>
 
@@ -351,7 +210,7 @@ foreach ($q->result_array() as $img){ ?>
 
               </form>
 
-                </div>   
+                </div>
 
 </div>
 
@@ -369,7 +228,7 @@ $(document).ready(function() {
   $('.private_msg').slideToggle(500);
    $('#prvt_msgf').one('submit',function(biswa){ //alert('.private_msgf_'+idd);
 	   biswa.preventDefault();
-	   var other_data = $(this).serialize(); 
+	   var other_data = $(this).serialize();
 	   	$.ajax({
                       url: '<?php echo JEWISH_URL;?>'+'/business_directory/classified_private_message/?'+other_data,
                       type: 'POST',
@@ -377,11 +236,11 @@ $(document).ready(function() {
 		                    		if(data=='success'){
 										$('.private_msg').hide('fast');
 										$('#msp').html("Your message has sent to advertiser, check My Account for advertiser's reply.");
-										$('#msgbox').val(' ');	
+										$('#msgbox').val(' ');
 									}else if(data=='have_comment'){
 										$('.private_msg').hide('fast');
 										$('#msp').html("Your have made a comment to this advertiser, check My Account .");
-										$('#msgbox').val(' ');										
+										$('#msgbox').val(' ');
 									}
                              }
                   });
@@ -398,4 +257,3 @@ $(document).ready(function() {
 });
 
 </script>
-
