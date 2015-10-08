@@ -158,20 +158,6 @@ $(document).ready(function(){
  <?php $attributes = array('id' => 'house_srch','method' => 'get');
             echo form_open_multipart('classified/search/housing/?', $attributes);
 				   ?>
- <article class="check-area">
- <?php /*?><input type="hidden" name="cat_id" value="<?php echo $cat_id;?>" /><?php */?>
- <label>
- <label><input type="checkbox" name="housing_wanted" value="yes" <?php if(isset($_GET['housing_wanted'])){ echo 'checked';}?> onclick="this.form.submit();">Housing Wanted</label>
- <label><input type="checkbox" name="housing_offered" value="yes" <?php if(isset($_GET['housing_offered'])){ echo 'checked';}?> onclick="this.form.submit();">Housing Offered</label>
- <input type="checkbox" name="pets_cat" value="cats accepted" <?php if(isset($_GET['pets_cat'])){ echo 'checked';}?> onclick="this.form.submit();">
- cats Acceptable</label>
- <label><input type="checkbox" name="pets_dog" value="dogs accepted" <?php if(isset($_GET['pets_dog'])){ echo 'checked';}?> onclick="this.form.submit();">Dogs Acceptable</label>
- <label><input type="checkbox" name="private_bath" value="yes" <?php if(isset($_GET['private_bath'])){ echo 'checked';}?> onclick="this.form.submit();">Private Bath</label> 
- <label><input type="checkbox" name="private_room" value="yes" <?php if(isset($_GET['private_room'])){ echo 'checked';}?> onclick="this.form.submit();">Private Room</label>
-  <label><input type="checkbox" name="no_smoking" value="yes" <?php if(isset($_GET['no_smoking'])){ echo 'checked';}?> onclick="this.form.submit();">No Smoking</label> 
-  <label><input type="checkbox" name="wheelchaccess" value="yes" <?php if(isset($_GET['wheelchaccess'])){ echo 'checked';}?> onclick="this.form.submit();">Wheel Chair access</label>
-  
- </article>
  <article class="check-area last" style="border:none;">
 <input type="reset" value="reset" id="rst">
 <input type="submit" value="search">
