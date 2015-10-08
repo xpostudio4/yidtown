@@ -10,6 +10,7 @@
       <!--<li><a href="#">Cl jobs</a></li>-->
       <li><a href="<?php echo JEWISH_URL;?>/pages/page/terms/">Terms</a></li>
       <li><a href="<?php echo JEWISH_URL;?>/pages/page/about/">About</a></li>
+      <li><a href="<?php echo JEWISH_URL;?>/pages/page/contact/">Contact</a></li>
       <!--<li><a href="#">Mobile</a></li>-->
       <?php
 	  /*$user_log=$this->session->userdata('logged_in');

@@ -1,4 +1,5 @@
 <script>console.log('miscellaneous/about.php')</script>
+      <li><a href="<?php echo JEWISH_URL;?>/pages/page/contact/">Contact</a></li>
 <div class="container">
 <section class="page-event">
  <div class="m-description-wrap clearfix">
