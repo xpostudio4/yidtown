@@ -66,7 +66,7 @@ class Business_directory extends CI_Controller{
 				$this->load->library('email');
 					  $email_setting  = array('mailtype'=>'html');
 					   $this->email->initialize($email_setting);
-								$this->email->from('info@jclassified.com', 'Your Name');
+								$this->email->from('info@jclassified.com', 'YidTown');
 								$this->email->to($this->input->post('b_email')); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
@@ -291,7 +291,7 @@ class Business_directory extends CI_Controller{
 		                        $this->load->library('email');
 					            $email_setting  = array('mailtype'=>'html');
 					            $this->email->initialize($email_setting);
-								$this->email->from('info@jclassified.com', 'Your Name');
+								$this->email->from('info@jclassified.com', 'YidTown');
 								$this->email->to($get_poster_date[0]['c_email']); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
