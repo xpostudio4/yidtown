@@ -11,7 +11,7 @@
   <h1>Contact</h1>
   <p>
     Please get in touch with us if you have any questions about our
-    YidTown. You can send us a message at wecare@brightechshop.com
+    YidTown.com. You can send us a message at info@yidtown.com
     or fill out the form below. We make every effort to respond to
     inquiries within 24 hours.
   </p>
@@ -35,15 +35,6 @@
 							<br>
 							<div class="row">
 								<div class="col-xs-12 col-md-2">
-									<label for="contact_company">Company</label>
-								</div>
-								<div class="col-xs-12 col-md-10">
-		    						<input type="text" name="contact_company" class="form-control" id="contact_company">
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-xs-12 col-md-2">
 									<label for="contact_email">E-mail*</label>
 								</div>
 								<div class="col-xs-12 col-md-10">
@@ -53,7 +44,7 @@
 							<br>
 							<div class="row">
 								<div class="col-xs-12 col-md-2">
-									<label for="contact_tel">Telephone</label>
+									<label for="contact_tel">Phone Number</label>
 								</div>
 								<div class="col-xs-12 col-md-10">
 		    						<input type="tel" name="contact_tel" class="form-control" id="contact_tel">
