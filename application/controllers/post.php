@@ -441,7 +441,6 @@ $this->load->view('housing/addpost',array('parent_id'=>$this->input->post("paren
 			'full_date'=>$date,
 			'event_duration' =>$this->input->post('event_duration'),
 			'event_free' =>$this->input->post('event_free'),
-			),
 	    );
 					$this->postmod->insert_event_meta($meta_data);
 					$d=array('cat_id'=>$this->input->post('object_id'), 'post_id'=>$post_id);
@@ -498,8 +497,6 @@ $this->load->view('housing/addpost',array('parent_id'=>$this->input->post("paren
 			'full_date'=>$date,
 			'event_duration' =>$this->input->post('event_duration'),
 			'event_free' =>$this->input->post('event_free'),
-			),
-
 	    );
 					$this->postmod->update_event_meta($meta_data,$update_id);
 					/*$d=array('cat_id'=>$this->input->post('object_id'), 'post_id'=>$post_id);

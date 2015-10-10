@@ -1,4 +1,4 @@
-<script>console.log('miscellaneous/about.php')</script>
+<script>console.log('miscellaneous/contact.php')</script>
 <div class="container">
 <section class="page-event">
  <div class="m-description-wrap clearfix">
@@ -18,54 +18,94 @@
 </section>
 
 <section>
-<?php echo  validation_errors(); ?>
+<br/>
+<div style="color: red;"><?php echo  validation_errors(); ?></div>
+<br/>
+<?php
+$data =array(
+        'contact_name' => array(
+            'name' => 'contact_name',
+            'value' =>set_value('contact_name'),
+            'id' => 'contact_name',
+            'class' => 'form-control',
+            'required' => 'required'
+            ),
+        'contact_email' => array(
+            'type' => 'email',
+            'name' => 'contact_email',
+            'value' =>set_value('contact_email'),
+            'id' => 'contact_email',
+            'class' => 'form-control',
+            'required' => 'required'
+            ),
+        'contact_tel' => array(
+            'type' => 'tel',
+            'name' => 'contact_tel',
+            'value' =>set_value('contact_tel'),
+            'id' => 'contact_tel',
+            'class' => 'form-control'
+            ),
+        'contact_message' => array(
+            'name' => 'contact_message',
+            'value' =>set_value('contact_message'),
+            'id' => 'contact_message',
+            'class' => 'form-control',
+            'required' => 'required'
+            ),
+      );
 
-
+?>
+<?php if($valid == FALSE){ ?>
 <div class="row" style="margin-right: 400px;">
 					<div class="col-xs-12 col-md-8">
-							<?php echo form_open('about'); ?>
+							<?php echo form_open('pages/page/contact'); ?>
 							<div class="row">
-								<div class="col-xs-12 col-md-2">
-									<label for="contact_name">Full name*</label>
+                <div class="col-xs-12 col-md-2">
+                  <?php echo form_label("Full name*", "contact_name"); ?>
+								</div>
+                <div class="col-xs-12 col-md-10">
+                  <?php echo form_input($data['contact_name']); ?>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+                <div class="col-xs-12 col-md-2">
+                  <?php echo form_label("E-mail*", "contact_email"); ?>
 								</div>
 								<div class="col-xs-12 col-md-10">
-		    						<input type="text" name="contact_name" class="form-control" id="contact_name" required="">
+                  <?php echo form_input($data['contact_email']); ?>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-xs-12 col-md-2">
-									<label for="contact_email">E-mail*</label>
+                  <?php echo form_label("Phone Number", "contact_tel"); ?>
 								</div>
 								<div class="col-xs-12 col-md-10">
-		    						<input type="email" name="contact_email" class="form-control" id="contact_email" required="">
+                  <?php echo form_input($data['contact_tel']); ?>
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<div class="col-xs-12 col-md-2">
-									<label for="contact_tel">Phone Number</label>
+                  <?php echo form_label("Message*", "contact_message"); ?>
 								</div>
-								<div class="col-xs-12 col-md-10">
-		    						<input type="tel" name="contact_tel" class="form-control" id="contact_tel">
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-xs-12 col-md-2">
-									<label for="contact_message">Message*</label>
-								</div>
-								<div class="col-xs-12 col-md-10">
-									<textarea name="contact_message" rows="5" class="form-control" id="contact_message"></textarea>
+                <div class="col-xs-12 col-md-10">
+                  <?php echo form_textarea($data['contact_message']); ?>
 								</div>
 							</div>
 							<br>
 							<div class="pull-right">
-		    					<input type="submit" class="btn btn-new" name="contact_send" id="submit" value="Submit message">
+		    					<input type="submit" class="btn btn-new" name="contact_send" id="submit" value="Contact Us!">
 							</div>
-						</form>
+            <?php  form_close(); ?>
 					</div>
 				</div>
+<?php }else{ ?>
+
+  <p style="text-align: center;">Thanks for contacting us, we'll be contacting you as soon as we can!</p>
+
+<?php } ?>
 </section>
 
 

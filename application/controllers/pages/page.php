@@ -19,21 +19,37 @@ class Page extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	function contact(){
-    $this->load->library("form_validation");
-    $this->form_validation->set_rules('contact_name', 'Full Name', 'required|alpha');
-    $this->form_validation->set_rules('contact_email', 'Email', 'required|valid_email');
-    $this->form_validation->set_rules('contact_message', 'Message', 'required');
+  function contact(){
 
-		$this->load->view('header');
-		$this->load->view('miscellaneous/contact');
+    if($this->input->server('REQUEST_METHOD') == 'POST'){
+
+      $this->load->library("form_validation");
+      $this->form_validation->set_rules('contact_name', 'Full Name', 'required|xss_clean');
+      $this->form_validation->set_rules('contact_email', 'Email', 'required|valid_email|xss_clean');
+      $this->form_validation->set_rules('contact_message', 'Message', 'required|xss_clean');
+
+      if($this->form_validation->run() == TRUE){
+
+        $data['valid'] = TRUE;
+        $this->load->library("email");
+
+        $this->email->to("dimitriyivanos@outlook.com");
+        $this->email->from(set_value('contact_email'), set_value('contact_name'));
+        $this->email->subject("YidTown Contact Request");
+        $this->email->message(set_value("contact_message"));
+        $this->email->send();
+
+      }
+    }
+
+    if(!isset($data)){
+      $data['valid'] = FALSE;
+    }
+
+    $this->load->view('header');
+		$this->load->view('miscellaneous/contact', $data);
     $this->load->view('footer');
 
-    if($this->form_validation->run() == FALSE){
-      //what to do if the validation fails
-    }else{
-    //what would do if nothings
-    }
   }
 
 	function privacy(){
