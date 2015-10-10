@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
                    echo form_open('login/create_password', $attributes); ?>
                    <input type="hidden" name="u_id" value="<?php echo $user_id;?>"/>
    <section class="loginBox">
-                <h4 class="ban">Create a Jewish Classified account</h4>
+                <h4 class="ban">Create a YidTown account</h4>
 				<p>
                     <label for="inputEmail">&lowast;Nickname:</label>
                     <input type="text" id="username" name="username" value="" maxlength="64" >

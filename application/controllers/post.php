@@ -173,10 +173,10 @@ $this->load->view('housing/addpost',array('parent_id'=>$this->input->post("paren
 								//$this->email->cc('testing.kaushik2@gmail.com');
 								$this->email->bcc('kaushik@primediart.com');
 
-								$this->email->subject('EDIT/DELETE/UPDATE Your Jewish Classified Post');
-								$this->email->message("<p>Please save this email as this is your only source for editing and deleting posts unless you have a Jewish Classified account and were logged in when you created the post.</p>
-								<p>Your recent post to the Jewish Classified site can be edited or deleted with the following link: </p>
-								<p><a href='".$active_url."' target='_blank'>Edit or delete Jewish Classified post</a></p>");
+								$this->email->subject('EDIT/DELETE/UPDATE Your YidTown Post');
+								$this->email->message("<p>Please save this email as this is your only source for editing and deleting posts unless you have a YidTown account and were logged in when you created the post.</p>
+								<p>Your recent post to the YidTown site can be edited or deleted with the following link: </p>
+								<p><a href='".$active_url."' target='_blank'>Edit or delete YidTown post</a></p>");
 
 								@$this->email->send();
 

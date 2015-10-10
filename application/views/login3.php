@@ -25,7 +25,7 @@ else{
             <br>
 
             <section class="loginBox">
-                <h4 class="ban">Log in to your Jewish Classified account</h4>
+                <h4 class="ban">Log in to your YidTown account</h4>
                  <?php  if(isset($alert)&& !empty($alert) ){ 
 				 				if($alert=='not_active_yet'){?>
 								<div class="alert">Your Account not been activeted yet, please check mail</div>	
@@ -105,7 +105,7 @@ else{
             <input type="hidden" name="key" value="<?php echo generateRandomString();?>">
 
             <section class="loginBox">
-                <h4 class="ban">Create a Jewish Classified account</h4>
+                <h4 class="ban">Create a YidTown account</h4>
 
                 <p>
                     <label for="inputEmail">Email:</label>

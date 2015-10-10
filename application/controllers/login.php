@@ -57,8 +57,8 @@ class Login extends CI_Controller {
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
 								
-								$this->email->subject('Jewish Classified account activation Link');
-								$this->email->message("<p>Jewish site activation link, please click below</p><p><a href='".$active_url."' target='_blank'>Click Here</a></p>");	
+								$this->email->subject('YidTown account activation Link');
+								$this->email->message("<p>Site activation link, please click below</p><p><a href='".$active_url."' target='_blank'>Click Here</a></p>");	
 								
 								@$this->email->send();
 								
@@ -185,8 +185,8 @@ class Login extends CI_Controller {
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
 								
-								$this->email->subject('Jewish Classified Password');
-								$this->email->message("<p>Jewish site password</p>
+								$this->email->subject('YidTown Password');
+								$this->email->message("<p>YidTown site password</p>
 								<p>Your New password is : ".$logindata['password']."</p>
 								<p><a href='".$active_url."' target='_blank'>Click Here</a></p>");	
 								

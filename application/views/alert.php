@@ -11,7 +11,7 @@
 	</section>
  <?php }else if($alert_type=='insert_account'){ ?>
 	 <section class="loginBox">
-<p>Thanks for signing up for a Jewish Classified account.</p>
+<p>Thanks for signing up for a YidTown account.</p>
 
 <p>A link to activate your account has just been emailed to <em style="font-weight:bold;"><?php echo $user_email;?></em></p>
 

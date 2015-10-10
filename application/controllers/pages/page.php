@@ -20,10 +20,21 @@ class Page extends CI_Controller {
 	}
 
 	function contact(){
+    $this->load->library("form_validation");
+    $this->form_validation->set_rules('contact_name', 'Full Name', 'required|alpha');
+    $this->form_validation->set_rules('contact_email', 'Email', 'required|valid_email');
+    $this->form_validation->set_rules('contact_message', 'Message', 'required');
+
 		$this->load->view('header');
 		$this->load->view('miscellaneous/contact');
-		$this->load->view('footer');
-	}
+    $this->load->view('footer');
+
+    if($this->form_validation->run() == FALSE){
+      //what to do if the validation fails
+    }else{
+    //what would do if nothings
+    }
+  }
 
 	function privacy(){
 		$this->load->view('header');

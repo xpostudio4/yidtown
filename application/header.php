@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Jewish Classified</title>
+<title>YidTown</title>
 <link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/style.css">
 <link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/style1.css">
 <link rel="stylesheet" href="<?php echo JEWISH_URL;?>/css/jewish.css">

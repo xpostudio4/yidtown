@@ -1,6 +1,6 @@
 <script>console.log('view/forum/sidebar.php')</script>
 <aside class="side-bar-right">
- <h2>Jewish Community Announcements</h2>
+ <h2>YidTown Community Announcements</h2>
  <ul class="myside">
      <li>1 day ago<a href="#">Join Our Community Celebration!</a></li>
      <li>08 Apr, 2015<a href="#">Check Out Etsy's Redesigned 

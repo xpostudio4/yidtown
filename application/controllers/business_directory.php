@@ -71,7 +71,7 @@ class Business_directory extends CI_Controller{
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
 								
-								$this->email->subject('Confirm Your Email Address at Jewish Classified (Business Directory)');
+								$this->email->subject('Confirm Your Email Address at YidTown (Business Directory)');
 								$this->email->message("<p>Your recent business profile activation link</p>
 								<p>Please click below</p>
 								<p><a href='".$active_url."' target='_blank'>Click Here for your business profile link</a></p>");	
@@ -295,10 +295,10 @@ class Business_directory extends CI_Controller{
 								$this->email->to($get_poster_date[0]['c_email']); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
-								$this->email->subject('Private message from your advertisement at Jewish Classified (Business Directory)');
+								$this->email->subject('Private message from your advertisement at YidTown (Business Directory)');
 								$this->email->message("<p>Somebody has shown interest in your business profile or has replied to your message.</p>
 								<p>Please register your account with ".$get_poster_date[0]['c_email']." this mail address to access your private message from
-								My Account at Jewish Classifiied.</p>
+								My Account at YidTown.</p>
 								<p><a href='".JEWISH_URL."/login' target='_blank'>Click here to register</a></p>
 								");	
 								
@@ -352,9 +352,9 @@ class Business_directory extends CI_Controller{
 								$this->email->to($get_poster_date[0]['c_email']); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
-								$this->email->subject('Private message from your advertisement at Jewish Classified ');
+								$this->email->subject('Private message from your advertisement at YidTown');
 								$this->email->message("<p>Somebody has shown interest in your classified Ad or has replied to your message.</p>
-								<p>Please login to your account with ".$get_poster_date[0]['c_email']." this will let you access your private message from My Account at Jewish Classified.</p>
+								<p>Please login to your account with ".$get_poster_date[0]['c_email']." this will let you access your private message from My Account at YidTown.</p>
 								<p><a href='".JEWISH_URL."/login' target='_blank'>Click here to register</a></p>
 								");	
 								
@@ -415,9 +415,9 @@ class Business_directory extends CI_Controller{
 								$this->email->to($to); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
-								$this->email->subject('Private message Notification from your advertisement at Jewish Classified');
+								$this->email->subject('Private message Notification from your advertisement at YidTown');
 								$this->email->message("<p>Somebody has shown interest in your business profile or has replied to your message.</p>
-								<p>Please login to your account with ".$to."  this will let you access your private message from <a href='".$active_url."' target='_blank'>My Account</a> at Jewish Classified.</p>");	
+								<p>Please login to your account with ".$to."  this will let you access your private message from <a href='".$active_url."' target='_blank'>My Account</a> at YidTown.</p>");	
 								
 								$this->email->send();
 		 
