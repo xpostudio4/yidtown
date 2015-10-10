@@ -62,7 +62,7 @@ $(document).ready(function() {
                         </label>
                              <label >
                             <div class="label">Phone</div>
-                            <input type="tel" class="std" value="" name="contact_phone" id="contact_phone" size="10" maxlength="16" placeholder="(555) 555-1212" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" required="required">
+                            <input type="tel" class="std" value="" name="contact_phone" id="contact_phone" size="10" maxlength="16" placeholder="(555) 555-1212">
                         </label>
                     </div>
                     <div class="top-area right">

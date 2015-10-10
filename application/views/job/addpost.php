@@ -105,7 +105,7 @@ $(document).ready(function() {
 
                             <div class="label">Phone</div>
 
-<input type="text" class="std" value=""  pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" placeholder="(555) 555-1212" >
+<input type="text" class="std" value="" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" placeholder="(555) 555-1212" >
 
                         </label>
 
@@ -295,9 +295,13 @@ $(document).ready(function() {
 
   <input tabindex="1" type="checkbox" value="yes" name="job_offered">job offered</label>
 
+</div>
+</div>
 
-
-
+<div>
+  <br/>
+  <input type="submit" value="Create Post Preview" name="submtadd"/>
+</div>
 
 <?php echo form_close(); ?>
 
