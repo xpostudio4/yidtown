@@ -168,7 +168,7 @@ $this->load->view('housing/addpost',array('parent_id'=>$this->input->post("paren
 				$this->load->library('email');
 					  $email_setting  = array('mailtype'=>'html');
 					   $this->email->initialize($email_setting);
-								$this->email->from('info@jclassified.com', 'YidTown');
+								$this->email->from('info@yidtown.com', 'YidTown');
 								$this->email->to($this->input->post('client_mail'));
 								//$this->email->cc('testing.kaushik2@gmail.com');
 								$this->email->bcc('kaushik@primediart.com');

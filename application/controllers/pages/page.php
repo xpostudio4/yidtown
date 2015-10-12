@@ -42,9 +42,6 @@ class Page extends CI_Controller {
       }
     }
 
-    if(!isset($data)){
-      $data['valid'] = FALSE;
-    }
 
     $this->load->view('header');
 		$this->load->view('miscellaneous/contact', $data);

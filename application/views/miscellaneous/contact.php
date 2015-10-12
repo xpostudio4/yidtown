@@ -55,7 +55,7 @@ $data =array(
       );
 
 ?>
-<?php if($valid == FALSE){ ?>
+<?php if(!isset($valid)){ ?>
 <div class="row" style="margin-right: 400px;">
 					<div class="col-xs-12 col-md-8">
 							<?php echo form_open('pages/page/contact'); ?>

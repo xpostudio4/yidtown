@@ -52,7 +52,7 @@ class Login extends CI_Controller {
 					  $this->load->library('email');
 					  $email_setting  = array('mailtype'=>'html');
 					   $this->email->initialize($email_setting);
-								$this->email->from('info@jclassified.com', 'YidTown');
+								$this->email->from('info@yidtown.com', 'YidTown');
 								$this->email->to($this->input->post("emailAddress")); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
@@ -180,7 +180,7 @@ class Login extends CI_Controller {
 		                         $this->load->library('email');
 					             $email_setting  = array('mailtype'=>'html');
 					             $this->email->initialize($email_setting);
-								$this->email->from('info@jclassified.com', 'YidTown');
+								$this->email->from('info@yidtown.com', 'YidTown');
 								$this->email->to($this->input->post("inputemaily")); 
 								//$this->email->cc('testing.kaushik2@gmail.com'); 
 								$this->email->bcc('kaushik@primediart.com'); 
