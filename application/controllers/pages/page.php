@@ -21,13 +21,14 @@ class Page extends CI_Controller {
 
   function contact(){
 
+    $data = array();
+
     if($this->input->server('REQUEST_METHOD') == 'POST'){
 
       $this->load->library("form_validation");
       $this->form_validation->set_rules('contact_name', 'Full Name', 'required|xss_clean');
       $this->form_validation->set_rules('contact_email', 'Email', 'required|valid_email|xss_clean');
       $this->form_validation->set_rules('contact_message', 'Message', 'required|xss_clean');
-
       if($this->form_validation->run() == TRUE){
 
         $data['valid'] = TRUE;

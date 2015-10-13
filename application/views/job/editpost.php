@@ -59,14 +59,6 @@
 
 </label>
 
-<label >
-
-<div class="label">Phone Number</div>
-
-<input type="text" class="str" value="<?php echo $data[0]['contact_phone']?>" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1">
-
-</label>
-
  </div>
 
 
@@ -139,7 +131,6 @@ value="<?php echo $data[0]['c_email']?>" required="required">
 
 	});
 
-	$("#contact_phone").mask("(999) 999-9999");
 
 		 $('Select option').each(function(){
 

@@ -31,10 +31,6 @@
                 <div class="label">Your Name</div>
                 <input type="text" value="<?php echo $data[0]['contact_name']?>" name="contact_name" id="contact_name" size="16" maxlength="32" tabindex="1" required="required">
                 </label>
-                <label >
-                <div class="label">Phone Number</div>
-                <input type="tel" class="str" value="<?php echo $data[0]['contact_phone']?>" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1">
-                </label>
                  </div>
 
                  <div class="top-area">
@@ -102,7 +98,6 @@
 	$('.event_cat').slideToggle(500);
 	$('.select-event').css({'border':'1px solid #bbb','color':''});
 	});
-  $("#contact_phone").mask("(999) 999-9999");
   $('#addpost').submit(function(kaushik){
 	var fields=$('.event_cat').find('input[type="checkbox"]:checked');
    /* if (fields.length== 0)

@@ -61,7 +61,6 @@ $(document).ready(function() {
 
 	});*/
 
-	$("#contact_phone").mask("(999) 999-9999");
 
 		 $('Select option').each(function(){
 
@@ -91,7 +90,7 @@ $(document).ready(function() {
 
 <div class="main-area">Contact Information</div>
 
-                    <div class="top-area">
+                    <div class="main-area-three">
 
                              <label >
 
@@ -101,34 +100,24 @@ $(document).ready(function() {
 
                         </label>
 
-                             <label >
-
-                            <div class="label">Phone</div>
-
-<input type="text" class="std" value="" name="contact_phone" id="contact_phone" size="10" maxlength="16" tabindex="1" placeholder="(555) 555-1212" >
-
-                        </label>
-
                     </div>
 
                     <div class="top-area">
 
-                            <label >
+                            <label>
 
                      <div class="label">Email</div>
 
                     <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off" required="required">
 
                      </label>
+                     </div>
 
-                            <label >
-
-                     <div class="label">Confirm Email</div>
-
-                    <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" required="required">
-
-                     </label>
-
+                     <div class="top-area right">
+                       <label>
+                         <div class="label">Confirm Email</div>
+                         <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" required="required">
+                       </label>
                      </div>
 
                      <div style="clear:both;"></div>

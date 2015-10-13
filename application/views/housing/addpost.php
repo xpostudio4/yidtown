@@ -33,8 +33,6 @@ $(document).ready(function() {
 
 	});
 
-	$("#contact_phone").mask("(999) 999-9999");
-
 	 $('Select option').each(function(){
       $(this).text($(this).text().charAt(0).toUpperCase() + $(this).text().slice(1));
     });
@@ -55,21 +53,19 @@ $(document).ready(function() {
 				   ?>
         <div class="posting fields">
             <div class="main-area">Contact Information</div>
-                    <div class="top-area">
+                    <div class="main-area-three">
                              <label >
                             <div class="label">Your Name</div>
                             <input type="text" value="" name="contact_name" id="contact_name" size="16" maxlength="32" tabindex="1" required="required">
                         </label>
-                             <label >
-                            <div class="label">Phone</div>
-                            <input type="tel" class="std" value="" name="contact_phone" id="contact_phone" size="10" maxlength="16" placeholder="(555) 555-1212">
-                        </label>
                     </div>
-                    <div class="top-area right">
+                    <div class="top-area">
                     <label >
                      <div class="label">Email</div>
                     <input tabindex="1" type="text" class="req df dv" id="c_email" name="c_email" placeholder="Your email address" maxlength="60" autocapitalize="off" required="required">
                      </label>
+                     </div>
+                    <div class="top-area right">
                      <label >
                      <div class="label">Confirm Email</div>
                     <input tabindex="1" type="text" class="req df dv" id="cc_email" name="cc_email" placeholder="Type email address again" maxlength="60" autocapitalize="off" required="required">
