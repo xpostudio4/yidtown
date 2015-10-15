@@ -807,7 +807,6 @@ h2.resp-accordion {
 }
 .event-right {
 	width: 715px;
-	float: right;
 }
 .list-g {
 	width: 92px;
@@ -882,13 +881,13 @@ h2.resp-accordion {
 }
 .event-right .list-v li {
 	font-family: 'SegoeUIRegular';
-	font-size: 11px;
+	font-size: 16px;
 	color: #353f4d;
 	line-height: 28px;
 }
 .event-right .list-v li strong {
 	font-family: 'segoe_uibold';
-	font-size: 13px;
+	font-size: 20px;
 	padding: 0 4px;
 }
 .event-right .list-v li img {
@@ -919,7 +918,7 @@ h2.resp-accordion {
 .event-right .gallery li h4 {
 	font-family: 'SegoeUIRegular';
 	color: #353f4d;
-	font-size: 11px;
+	font-size: 16px;
 	margin: 0 5px;
 	clear: both;
 	overflow: auto;
@@ -927,7 +926,7 @@ h2.resp-accordion {
 }
 .event-right .gallery li h4 strong {
 	font-family: 'segoe_uibold';
-	font-size: 13px;
+	font-size: 16px;
 	padding: 0 4px;
 }
 .event-right .gallery li h4 img {
