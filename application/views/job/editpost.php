@@ -11,7 +11,7 @@
 
     <li><a href="<?php echo JEWISH_URL;?>">Homepage</a></li>
 
-    <li> > <a href="<?php echo JEWISH_URL;?>/post/post_edit/<?php echo $this->uri->segment(3)?>/<?php echo $this->uri->segment(4)?>">Edite Job Post</a></li>
+    <li> > <a href="<?php echo JEWISH_URL;?>/post/post_edit/<?php echo $this->uri->segment(3)?>/<?php echo $this->uri->segment(4)?>">Edit Job Post</a></li>
 
   </ul>
 

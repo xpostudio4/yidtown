@@ -441,16 +441,15 @@ $( "#dialog-confirm" ).dialog({
    <h6><a href="#">Translate</a></h6>
 
   </div>
+</article>
 
- </article>
 
- 
 
  <h2><span><?php echo sizeof($forumcomment); ?></span>Responses</h2>
 
  <div class="borderunder"></div>
 
- <?php 
+ <?php
 
   if($this->uri->segment(3)){
 
@@ -460,7 +459,6 @@ $( "#dialog-confirm" ).dialog({
 
   ?>
 
- 
 
     <article style="border:0px" class="blog">
 

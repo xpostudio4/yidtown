@@ -2,7 +2,7 @@
 <style>
 .page_navigation a, .alt_page_navigation a
 {
-  background:#999;	
+  background:#999;
 }
 
 </style>
@@ -20,7 +20,7 @@
 
  <li>Community <span>Forums</span></li>
 
- <?php 
+ <?php
 
  //print_r($catd);
 
@@ -28,13 +28,13 @@
 
  {
 
-	echo "<li><a href='".JEWISH_URL."/forum/".$catd[$i]->f_cat_slug."'>".$catd[$i]->f_cat_name."</a></li>" ; 
+	echo "<li><a href='".JEWISH_URL."/forum/".$catd[$i]->f_cat_slug."'>".$catd[$i]->f_cat_name."</a></li>" ;
 
  }
 
   ?>
 
- <?php 
+ <?php
  if($this->session->userdata('logged_in'))
  {
  ?>
@@ -46,22 +46,22 @@
 <a href='<?php echo JEWISH_URL;?>/login/redirect/?redirect=<?php echo JEWISH_URL;?>/forum/yourthreads'><div class="yourpost">My Threads</div></a>
 <?php }?>
 
- <?php 
+ <?php
 
- $userid=$this->session->userdata('logged_in');
+     $userid=$this->session->userdata('logged_in');
 
- if($userid['user_id']){
+      if($userid['user_id']){
 
- ?>    
+ ?>
 
- <li><a href='<?php echo JEWISH_URL;?>/forum/newthreads'>New Threads</a></li>      
+ <li><a href='<?php echo JEWISH_URL;?>/forum/newthreads'>New Threads</a></li>
 
  <?php } ?>
 
  </ul>
- 
- 
- <?php 
+
+
+ <?php
  if($this->session->userdata('logged_in'))
  {
  ?>
@@ -81,17 +81,13 @@
 
 <div class="content-left">
 
- 
 
- 
  <section class="forums-post">
  <h3>All Threads</h3>
 
- 
  <div id="paging_container1" class="container">
 
 
- 
 <ul class="alt_content">
 
   <?php
@@ -102,9 +98,7 @@
 if(isset($forumdata[$i]['catname'])){
  	    ?>
 
-  
 
-  
 
        <li>
 
@@ -119,14 +113,13 @@ if(isset($forumdata[$i]['catname'])){
 
        <?php }else{ continue;}} ?>
 
-       
+
 
     </ul>
 
   <div class="alt_page_navigation"></div>
      </div>
 
- 
 </section>
 
 
@@ -158,4 +151,3 @@ if(isset($forumdata[$i]['catname'])){
 
 
 
- 

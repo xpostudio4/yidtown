@@ -1,25 +1,25 @@
- <script src="<?php echo JEWISH_URL;?>/js/ckeditor/ckeditor.js" type="text/javascript"></script> 
+ <script src="<?php echo JEWISH_URL;?>/js/ckeditor/ckeditor.js" type="text/javascript"></script>
 
 <script>
  $(document).ready(function(){
 	// alert('dsfsdaff');
    $(".comreply").click(function(){
-   $(".comrdesc").hide();	   
+   $(".comrdesc").hide();
    var comre=$(this).attr('id');
    $('.'+comre).toggle('slow');
-  	  });	
+  	  });
 
-  $(".editme").click(function(){  
- 	$(".community-area").show();  
+  $(".editme").click(function(){
+ 	$(".community-area").show();
 
-	});	
+	});
 function IsEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
    return regex.test(email);
-}	
+}
 	$(".checking").click(function(){
 		$(".loader").show();
-	 var fcomment_name = $("#fcomment_name").val();	
+	 var fcomment_name = $("#fcomment_name").val();
 		if(fcomment_name){
 			var fcomment_email = $("#fcomment_email").val();
   			if(IsEmail(fcomment_email)){
@@ -28,26 +28,26 @@ function IsEmail(email) {
 				  url: "<?php echo site_url('forum/commentlogin'); ?>",
 				  data:'fcomment_name='+fcomment_name+'&fcomment_email='+fcomment_email,
 				  success: function (data) {
-					  
+
 				  //   alert(data);
-					  
-  				  if(data==2)	  
+
+  				  if(data==2)
 				  {
 	             $(".loader").hide();
 				 $(".errorall").html('Your email id / username is mismatched');
                       return false;
-					  
+
 				  }
-					  
+
 				  //alert('form was submitted');
 				   var extra=$(".extra").html();
 				   $(".nextsection").html(extra);
-				   $(".firstsection").hide();	
+				   $(".firstsection").hide();
 				  $(".loader").hide();
  				  $(".comment-reply-title").hide();
 				location.reload();
 				   }
-				  });	 
+				  });
 			}
 			else{
 						$(".loader").hide();
@@ -59,7 +59,7 @@ function IsEmail(email) {
       $(".errorname").html('Please insert your username');
 	 }
  	});
-	
+
  	$(".replysubmit").on('submit', function (e) {
 		 var did =$(this).attr('id');
  		e.preventDefault();
@@ -75,10 +75,10 @@ function IsEmail(email) {
 				//$("#preview_form").resetForm();
 				}
 			});
- 	});	  
-		
- 	
-	
+ 	});
+
+
+
 	$("#insertcomment").on('submit', function (e) {
 		//alert($(".myform").attr('title'));
  		e.preventDefault();
@@ -94,12 +94,12 @@ function IsEmail(email) {
 				//$("#preview_form").resetForm();
 				}
 			});
- 	});	  
-	
-	
-	
-	
-	
+ 	});
+
+
+
+
+
   });
 
 
@@ -117,28 +117,28 @@ function IsEmail(email) {
   </ul>
 <ul class="page-navi">
  <li>Community <span>Forums</span></li>
- <?php 
-$this->uri->segment(2);
- 
- 
- 
+ <?php
+    $this->uri->segment(2);
+
+
+
  //print_r($catd);
  for($i=0;$i<sizeof($catd);$i++)
  {
 	 $catname = $catd[$i]->f_cat_name;
 	 if($catd[$i]->f_cat_slug == $this->uri->segment(2)){
-	echo "<li><a class='selected'>".$catd[$i]->f_cat_name."</a></li>" ; 
+	echo "<li><a class='selected'>".$catd[$i]->f_cat_name."</a></li>" ;
 	 }
 	 else{
-	echo "<li><a href='".JEWISH_URL."/forum/".$catd[$i]->f_cat_slug."'>".$catd[$i]->f_cat_name."</a></li>" ; 
+	echo "<li><a href='".JEWISH_URL."/forum/".$catd[$i]->f_cat_slug."'>".$catd[$i]->f_cat_name."</a></li>" ;
 	 }
  }
-  
+
  ?>
- 
- 
+
+
  </ul>
- <?php 
+ <?php
  if($this->session->userdata('logged_in'))
  {
  ?>
@@ -155,36 +155,36 @@ $this->uri->segment(2);
 <div class="content-left">
 <?php
   if(!$this->uri->segment(3)){
-	  
+
 ?>
  <section class="forums-post">
  <?php
   // echo $this->uri->segment(3);
- 
+
     foreach($forumdata as $ky=>$val)
   {
    if($this->uri->segment(2)==strtolower($ky)){
-  ?> 
- 
+  ?>
+
  <h3><a href="<?php echo JEWISH_URL;?>/forum/<?php echo strtolower($ky); ?>/"><?php echo $ky;  ?></a></h3>
   <ul>
   <?php
-   
+
    for($i=0;$i<sizeof($forumdata[$ky]);$i++)
   {
  	    ?>
-  
-  
+
+
        <li>       <h4><a href="<?php echo JEWISH_URL;?>/forum/<?php echo strtolower($ky); ?>/<?php echo $forumdata[$ky][$i]['forum_slug'] ; ?>"><?php echo $forumdata[$ky][$i]['forum_name'] ; ?></a><br><span><?php echo strtolower($ky); ?></span></h4>
-       <h5><span><?php  echo $forumdata[$ky][$i]['forumcomment_count'] ;?></span><?php 
+       <h5><span><?php  echo $forumdata[$ky][$i]['forumcomment_count'] ;?></span><?php
 	   $yrdata= strtotime($forumdata[$ky][$i]['forum_modified_date'] ); echo date('m/d/Y', $yrdata); ?></h5>
        </li>
        <?php }} ?>
     </ul>
- 
+
        <?php } ?>
 </section>
-<?php } 
+<?php }
  if($this->uri->segment(3)){
 	  $user_log=$this->session->userdata('logged_in');
  	 ?>
@@ -197,73 +197,95 @@ $this->uri->segment(2);
 
   <div class="editme">Edit</div>
   <?php }?>
-  
+
   <div style="clear:both"></div>
-  
+
  <?php
   if($user_log['user_id']==$forumdata['forum_author_id']){
- 
+
 //echo $this->router->fetch_method();
  ?>
 <section style="display:none;" class="community-area">
-  
+
 <div class="commentrespond">
        <?php
 			//print_r($user_log); $user_log['user_id']
 			 $date = date('20y-m-d h:i:s', time());
-			
+
 	  ?>
    <div class="borderunder"></div>
-   
+
 <form action="" method="post">
     <p class="comment-form-author">
         <label for="author">Topic Name <span class="required">*</span></label><br />
         <input id="author" name="forum_name" type="text" value="<?php echo $forumdata['forum_name'];?>" size="30" aria-required="true">
     </p>
-     <p class="comment-form-email"> 
+     <p class="comment-form-email">
         <label for="email">Type of Topic <span class="required">*</span></label> <br />
-        <select name="forum_cat"> 	
+        <select name="forum_cat">
          <option <?php if($forumdata['forum_cat']==1)echo "selected='selected'";?> value="1">Questions</option>
         <option <?php if($forumdata['forum_cat']==2)echo "selected='selected'";?> value="2">Announcements</option>
         <option <?php if($forumdata['forum_cat']==3)echo "selected='selected'";?> value="3">Discussions</option>
         <option <?php if($forumdata['forum_cat']==4)echo "selected='selected'";?> value="4">Chitchat</option>
         </select>
      </p>
-   <input type="hidden" name="forum_id" value="<?php echo $forumdata['forum_id'] ?>" /> 
-   <input type="hidden" name="forum_modified_date" value="<?php echo $date ?>" /> 
+   <input type="hidden" name="forum_id" value="<?php echo $forumdata['forum_id'] ?>" />
+   <input type="hidden" name="forum_modified_date" value="<?php echo $date ?>" />
      <p class="comment-form-comment">
         <label for="comment">Comment</label><br />
         <textarea id="comment" required='required' name="forum_content" class="ckeditor" cols="45" rows="8" aria-required="true"><?php echo $forumdata['forum_content'];?></textarea>
-    </p>						 
+    </p>
      <p class="form-submit">
     <input name="threadupdate" type="submit" id="submit" value="Update">
      </p>
 </form>
 
-</div> 
+</div>
 <!-- <h2><span>0</span>Responses</h2>
---> </section>  
-  
-   
+--> </section>
+
+
   <?php }?>
-  
-  
+
+
  <article class="blog">
    <div class="blog-right">
    <h5><span><?php  echo $forumdata['forum_author'];  ?></span> &nbsp; <?php $yrdata= strtotime($forumdata['forum_modified_date']); echo date('m/d/Y', $yrdata); ?> </h5>
    <p><?php echo $forumdata['forum_content'];?></p>
    <!--<h6><a href="#">Translate</a></h6>-->
-  </div>
+   </div>
  </article>
- 
+    <div>
+      <?php
+           $user_log=$this->session->userdata('logged_in');
+			     if(isset($user_log['user_id']) && !empty($user_log['user_id'])){
+       ?>
+         <h3 class="m-mail"><a href="#" id="pvt_msg_but">Message <?php echo $forumdata['forum_author']; ?></a></h3>
+        <?php }else {?>
+          <h3 class="m-mail"><a href="<?php echo JEWISH_URL;?>/login/redirect/?redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" id="">Message <?php echo $forumdata['forum_author']; ?></a></h3>
+        <?php }?>
+        <!--Private message-->
+          <div class="private_msg" id="private_msgy" style="display:none;"> <!--<h2>Message to Advertiser</h2>-->
+            <form method="post" id="prvt_msgf" >
+              <textarea name="message" class="pmsg" id="msgbox" required="required"></textarea>
+              <input type="hidden" name="post_id" value="<?php echo $this->allencode->encode($forumdata['forum_id'])?>"/>
+              <input type="hidden" name="poster_id" value="<?php echo $this->allencode->encode($forumdata['forum_author_id']);?>"/>
+              <input type="hidden" name="post_type" value="FR"/>
+              <input type="submit" name="b_submit" value="Submit" id="b_submity">
+            </form>
+          </div>
+                <p id="msp"></p>
+        <!--Private message-->
+    </div>
+
  <h2><span><?php echo sizeof($forumcomment); ?></span>Responses</h2>
  <div class="borderunder"></div>
- <?php 
+ <?php
   if($this->uri->segment(3)){
       for($i=0;$i<sizeof($forumcomment);$i++)
   {
   ?>
- 
+
     <article style="border:0px" class="blog">
         <figure class="thum1">
         <img width="40" src="<?php if($forumcomment[$i]['forum_author_image'])
@@ -271,9 +293,9 @@ $this->uri->segment(2);
         <div class="blog-right">
             <h5><span><?php echo $forumcomment[$i]['fcomment_name']; ?></span> </h5>
             <p><?php echo $forumcomment[$i]['fcomment_desc']; ?></p>
-            <p 
+            <p
              <?php
-			 
+
 			 if(!$this->session->userdata('comuser_name')&&!$this->session->userdata('logged_in')) {?>
               title="Please login and reply comment"
              <?php }?>
@@ -293,7 +315,7 @@ $this->uri->segment(2);
                 <!--                <label for="author">Name <span class="required">*</span></label><br />
                 --><input id="author" name="reply_name" class="reply_name" type="hidden" value="<?php if($user_log['username']){echo $user_log['username'];}else{ echo $sesval['comuser_name'];  echo $user_log['username'];}?>" size="30" aria-required="true">
                 </p>
-                
+
                 <p class="comment-form-email">
                 <!--<label for="email">Email <span class="required">*</span></label> <br />
                 --><input id="email" name="reply_email"  class="reply_email" type="hidden" value="<?php if($user_log['email']){echo $user_log['email'];}else {echo $sesval['comuser_email']; echo $user_log['email'];}?>" size="30" aria-required="true">
@@ -302,26 +324,26 @@ $this->uri->segment(2);
                 <p class="comment-form-comment">
                 <label for="comment">Reply On Comment</label><br />
                 <textarea id="comment" required='required' name="reply_desc" class="reply_desc cinput3_ required" cols="45" rows="8" aria-required="true"></textarea>
-                </p>						 
-                                                    
+                </p>
+
                 <p class="form-submit">
                 <input name="replysubmit"  class="myform formreply" title="replysubmit<?php echo $i;?>" type="submit" id="<?php echo $forumcomment[$i]['fcomment_id']; ?>" value="Post Comment">
                 </p>
             </form>
-        </div>         
- 
- 
+        </div>
+
+
    <?php } ?>
-   
+
    <?php
    if($forumcomment[$i]['fcomment_reply']){
     $rp = unserialize($forumcomment[$i]['fcomment_reply']);
-   for($j=0;$j<sizeof($rp);$j++){	   
+   for($j=0;$j<sizeof($rp);$j++){
    ?>
     <article style="border:0px; margin-left:90px; padding-bottom:15px; border-bottom:1px #f1f1f1 solid;" class="blog">
         <figure class="thum1">
         <img width="40" src="<?php //if($rp[$i]['forum_author_image'])
-		//{echo $rp[$i]['forum_author_image'];}else{ 
+		//{echo $rp[$i]['forum_author_image'];}else{
 		echo JEWISH_URL;?>/upload/nouser.png<?php //}?>" alt=""></figure>
         <div style="width:450px;" class="blog-right">
             <h5><span><?php echo $rp[$j]['reply_name']; ?></span> </h5>
@@ -329,21 +351,21 @@ $this->uri->segment(2);
          </div>
     </article>
    <?php }}?>
-   
+
    <div id="temp_<?php echo $forumcomment[$i]['fcomment_id']; ?>"></div>
-   
+
    <div class="borderunder"></div>
 
  <?php }?>
- 
- 
+
+
 <div class="commentrespond">
        <?php
  //$this->session->sess_destroy()
 	//	if(isset($user_log['user_id'])||$useremail=''){
 			//print_r($user_log);
   $sesval = $this->session->userdata('comuser_name');
-  if(!$sesval['comuser_email']&&!$user_log['email']){ 			
+  if(!$sesval['comuser_email']&&!$user_log['email']){
 	  ?>
  <h3 class="comment-reply-title">To reply on this topic choose an option below</h3> <?php }?>
       <img class="loader" style="  position: absolute;left: 5px;top: 29px; display:none; " src="<?php echo JEWISH_URL;?>/images/ajax-loader.gif" />
@@ -354,8 +376,6 @@ $this->uri->segment(2);
 <div class="m-forumcat-page-form-left">
 <form action="" method="post" id="insertcomment">
 <?php
-//echo 'hhhhhhh';
-//print_r($this->session->userdata('comuser_name'));
   if(sizeof($this->session->userdata('comuser_name'))){
   $sesval = $this->session->userdata('comuser_name');
   $user_log=$this->session->userdata('logged_in');
@@ -368,30 +388,30 @@ $this->uri->segment(2);
 		<p style="color:#F00" class="errorname"></p>
 		<?php }?>
         <input id="fcomment_name" required name="fcomment_name" <?php if($sesval['comuser_email']||$user_log['email']){ echo 'type="hidden"';}else{?> type="text"<?php }?> value="<?php if($sesval['comuser_name'] && $user_log['username']){echo $user_log['username'];}else{ echo $sesval['comuser_name'];  ?><?php echo $user_log['username']; } ?>" size="30" aria-required="true" style="margin:0px;">
-   
-  <?php if(!$sesval['comuser_email']&&!$user_log['email']){ ?>     
+
+  <?php if(!$sesval['comuser_email']&&!$user_log['email']){ ?>
     <p class="comment-form-email">
         <label for="email">Email <span class="required">*</span> <small style="font-size:10px;">Your email address will never be shown</small></label></p>
 		<p style="color:#F00" class="errorall erroremail"></p>
 		<?php }?>
         <input id="fcomment_email" name="fcomment_email"  <?php if($sesval['comuser_email']||$user_log['email']){ echo 'type="hidden"';}else{?> type="text"<?php }?> value="<?php if($sesval['comuser_email'] && $user_log['email']){echo $user_log['email'];}else{  echo $sesval['comuser_email'];  ?><?php echo $user_log['email']; } ?>" size="30" aria-required="true" style="margin:0 0 5px 0;">
          <?php if(!$sesval['comuser_email']&&!$user_log['email']){ ?> <!--<div class="text-or" style="float:right; margin:0px; padding-top:60px; border-left:#000 solid 2px; padding-left:50px; height:140px; top:-161px; left:104px;><span style="padding-right:5px; font-weight:bold;font-size:17px; ">OR </span> <a style="font-weight:bold; color:#57e2ca" href="<?php //echo JEWISH_URL;?>/login/redirect/?redirect=<?php //echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>"">Login</a> to your account and reply on the topic and track your comment and enable comment editing</div>--> <?php }?>
-     
-   <input type="hidden" name="forum_id" value="<?php echo $forumdata['forum_id']; ?>" /> 
+
+   <input type="hidden" name="forum_id" value="<?php echo $forumdata['forum_id']; ?>" />
    <?php if(!$sesval['comuser_email']&&!$user_log['email']){?> <div class="checking">Go</div><small style="font-size:10px; margin:-38px 0 0 46px; float:left;">You can login again with the same nickname and email ID combination.</small><?php } ?>
    </div>
     <div class="nextsection" >
 
-    
-    <?php 
+
+    <?php
  	  if($sesval['comuser_email']||$user_log['email']){
-	
+
 		?>
     <p class="comment-form-comment">
         <label for="comment">Text</label><br />
         <textarea id="comment" required='required' name="fcomment_desc" cols="45" rows="8" aria-required="true"></textarea>
-    </p>						 
-                                                    
+    </p>
+
     <p class="form-submit">
     <input name="submit" type="submit" id="submit" value="Post Comment">
      </p> <?php } ?>
@@ -447,4 +467,3 @@ $this->uri->segment(2);
 </div>
 
 
- 

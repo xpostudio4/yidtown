@@ -5,45 +5,35 @@
 <div class="container">
  <div class="m-description-wrap clearfix">
    <div class="m-description-top clearfix">
-     <span><a href="<?php echo JEWISH_URL;?>">Homepage</a></span> > 
-     <span><a href="<?php echo JEWISH_URL;?>/business_directory/">Business Directory</a></span> >
+     <span><a href="<?php echo JEWISH_URL;?>">Homepage</a></span>
+     <span><a href="<?php echo JEWISH_URL;?>/business_directory/">Business Directory</a></span>
      <span><a href="<?php echo JEWISH_URL;?>/business_directory/business_list/<?php echo $this->uri->segment(3);?>/<?php echo $this->uri->segment(5);?>/1"><?php echo urldecode($this->uri->segment(3));?></a></span> >
      <span><a href="<?php echo JEWISH_URL;?>/business_directory/businessprofile/<?php echo $this->uri->segment(3);?>/<?php echo $this->uri->segment(4);?>/<?php echo $this->uri->segment(5);?>/<?php echo $this->uri->segment(6);?>"><?php echo urldecode($this->uri->segment(4));?></a></span>
    </div>
    <script>
    $(document).ready(function(e) {
-$('.m-carousel-inner').slick({
-  lazyLoad: 'ondemand',
-  slidesToShow: 4,
-  slidesToScroll: 1
-});
-/*$('.m-carousel-image > a').mouseenter(function(e){
-	var counter=$(this).attr('counter');
-	$('.slick-active.dib_'+counter).css({'width':'220px','height':'170px'});
-	//$(this).attr('height','250');
-	//$(this).attr('width','295');
-	});
-$('.m-carousel-image > a').mouseleave(function(){
-	var counter=$(this).attr('counter');
-	$('.slick-active.dib_'+counter).css({'width':'','height':''});
-	//$(this).attr('height','165');
-	//$(this).attr('width','225');
-	});*/
-});
 
-   
+     $('.m-carousel-inner').slick({
+       lazyLoad: 'ondemand',
+       slidesToShow: 4,
+       slidesToScroll: 1
+     });
+
+   });
+
+
    </script>
-<?php $fetch=$this->businessmod->get_singlebd_byid($this->allencode->decode($this->uri->segment(6))); //print_r($fetch);?>   
+<?php $fetch=$this->businessmod->get_singlebd_byid($this->allencode->decode($this->uri->segment(6))); //print_r($fetch);?>
    <div class="m-add-business clearfix">
      <div class="m-add-business-left">
-       
+
        <?php $img=$this->businessmod->get_bd_image($this->allencode->decode($this->uri->segment(6)));
 	   if(empty($img) ){?>
 <div class="m-add-business-left-image"><img src="<?php echo JEWISH_URL;?>/images/m-carousel-img-4.jpg" height="75" width="76" ></div>
        <?php }else { ?>
 <div class="m-add-business-left-image"><img src="<?php echo JEWISH_URL;?>/upload/<?php echo $img[0]['img'];?>" height="75" width="76"  alt=""></div>
        <?php } ?>
-       
+
        <div class="m-add-business-left-text">
          <h3><?php echo $fetch[0]['b_name'];?></h3>
          <h4><?php echo $fetch[0]['b_address1'];?> ,<?php echo $fetch[0]['b_address2'];?> , <?php echo $fetch[0]['b_state'];?></h4>
@@ -51,9 +41,9 @@ $('.m-carousel-image > a').mouseleave(function(){
      </div>
      <div class="m-add-business-right"><a href="<?php echo JEWISH_URL;?>/business_directory/add_business/">Add your Business</a></div>
    </div>
-   
-   
-   
+
+
+
    <div class="m-carousel-wrap clearfix">
     <div class="m-carousel-inner clearfix">
     <?php $ft_im=$this->businessmod->get_bd_image($fetch[0]['id']); //echo '<pre>'; //print_r($img);echo '</pre>';
@@ -67,8 +57,8 @@ $('.m-carousel-image > a').mouseleave(function(){
       <?php } ?>
     </div>
    </div>
-   
-   
+
+
    <div class="m-description-main-wrap clearfix">
      <div class="m-description-main-inner clearfix">
        <div class="m-description-main-left">
@@ -79,7 +69,7 @@ $('.m-carousel-image > a').mouseleave(function(){
            <h3 class="m-phn"><?php echo $fetch[0]['b_phone'];?></h3>
            <?php
            	 //$actual_link=JEWISH_URL.'/business_directory/review/'.$this->allencode->encode($fetch[0]['id']);
-			 $user_log=$this->session->userdata('logged_in'); 
+			 $user_log=$this->session->userdata('logged_in');
 			 if(isset($user_log['user_id']) && !empty($user_log['user_id'])){?>
            <h3 class="m-mail"><a href="#" id="pvt_msg_but">Message this business</a></h3>
            <?php }else {?>
@@ -101,20 +91,20 @@ $('.m-carousel-image > a').mouseleave(function(){
        </div>
        <div class="m-description-main-right">
          <?php echo $fetch[0]['b_des'];?>
-         
+
          <div class="m-description-main-right-btn-wrap clearfix">
          <?php if(isset($user_log['user_id']) && !empty($user_log['user_id'])){?>
            <div class="m-description-main-right-btn"><a href="<?php echo JEWISH_URL;?>/myaccount/business_profilelist/">Edit Your Businss</a></div>
          <?php }else{ ?>
            <div class="m-description-main-right-btn"><a href="<?php echo JEWISH_URL;?>/login/redirect/?redirect=<?php echo JEWISH_URL;?>/myaccount/business_profilelist/">Edit Your Businss</a></div>
-         <?php } ?> 
+         <?php } ?>
          </div>
-         
+
        </div>
      </div>
    </div>
  </div>
- 
+
 </div>
 <style>
 .m-description-main-right > ol, .m-description-main-right > ul {
@@ -131,34 +121,44 @@ $('.m-carousel-image > a').mouseleave(function(){
 }
 </style>
 <script>
-$(document).ready(function() {
+  $(document).ready(function() {
 
- $('#pvt_msg_but').on('click',function(kaushik){
-	   kaushik.preventDefault();
-	   $('#msp').html("");
-  $('.private_msg').slideToggle(500);
-   $('#prvt_msgf').one('submit',function(biswa){ //alert('.private_msgf_'+idd);
-	   biswa.preventDefault();
-	   var other_data = $(this).serialize(); 
-	   	$.ajax({
-                      url: '<?php echo JEWISH_URL;?>'+'/business_directory/bd_private_message/?'+other_data,
-                      type: 'POST',
-                      success: function(data){
-		                    		if(data=='success'){
-										$('.private_msg').hide('fast');
-										$('#msp').html("Your message has sent to advertiser, check My Account for advertiser's reply.");
-										$('#msgbox').val(' ');	
-									}else if(data=='have_comment'){
-										$('.private_msg').hide('fast');
-										$('#msp').html("Your have already made a message to this advertiser, check My Account .");
-										$('#msgbox').val(' ');										
-									}
-                             }
-                  });
-	 });
- }) ;
-	$('.p_msg_off').on('click',function(){
-		alert('You have already sent a message to this advertiser,Check My Account');
-		});
-});
+    $('#pvt_msg_but').on('click',function(kaushik){
+
+  	  kaushik.preventDefault();
+  	  $('#msp').html("");
+      $('.private_msg').slideToggle(500);
+      $('#prvt_msgf').one('submit',function(biswa){
+
+  	    biswa.preventDefault();
+        var other_data = $(this).serialize();
+
+  	   	$.ajax({
+          url: '<?php echo JEWISH_URL;?>'+'/business_directory/bd_private_message/?'+ other_data,
+          type: 'POST',
+          success: function(data){
+            if(data=='success'){
+
+  						$('.private_msg').hide('fast');
+              $('#msp').html("Your message has sent to advertiser, check My Account for advertiser's reply.");
+              $('#msgbox').val(' ');
+
+  					}else if(data=='have_comment'){
+
+              $('.private_msg').hide('fast');
+  						$('#msp').html("Your have already made a message to this advertiser, check My Account .");
+  						$('#msgbox').val(' ');
+
+            }
+          }
+        });
+
+  	  });
+    });
+
+  	$('.p_msg_off').on('click',function(){
+  		alert('You have already sent a message to this advertiser,Check My Account');
+      });
+
+  });
 </script>
