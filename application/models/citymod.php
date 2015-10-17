@@ -31,4 +31,15 @@ class Citymod extends CI_Model{
 
    }
 
+   function get_city_slug($city_id){
+
+      $query = $this->db->get_where('city', array('id' => $city_id), 1, 0);
+
+		  foreach($query->result_array() as $v){
+		    return $v['slug'];
+			}
+
+   }
+
+
 }

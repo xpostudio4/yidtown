@@ -7,12 +7,13 @@ class Forum extends CI_Controller{
 		parent::__construct();
 
 		$this->load->database();
-        $this->load->library('pagination');
+    $this->load->library('pagination');
 		$this->load->model('citymod');
 
 		$this->load->library("session");
 
-		$this->load->helper('form');
+    $this->load->helper('form');
+    $this->load->helper('url');
 
 		$this->load->model('businessmod');
 
@@ -24,41 +25,17 @@ class Forum extends CI_Controller{
 
 	public function index($pagin=''){
 
-		$this->load->helper('form');
-
 		$this->load->database();
-
- 		$this->load->view('forum/header');
-
- 		$k=$this->load->model('forum_module');
-
- 		$catdt['catd'] = $this->forum_module->catdata();
-//       if($this->uri->segment(3)){
-// 		$catdt['forumdata'] = $this->forum_module->forumall('0','2');
-//	   }
-//	   else{
-// 		$catdt['forumdata'] = $this->forum_module->forumall($this->uri->segment(3),'2');
-//	   }
- 		//echo "<pre>";
- 		$catdt['forumdata'] = $this->forum_module->forumall();
-		
-
-		 //       print_r($catdt);
+		$this->load->model('citymod');
+    $city_id = intval($this->session->userdata('city_id')[0]);
+    $city_slug = $this->citymod->get_city_slug($city_id);
 
 
-
-  		$this->load->view('forum/forum',$catdt);
-
- 		//$user_log=$this->session->userdata('logged_in');
-
-		//$this->load->view('housing/post');
-
-		$this->load->view('footer');
+    redirect('/forum/city/'.$city_slug);
 
 	}
-	
-  public function city($city_slug){
 
+  public function city($city_slug){
     //configuration
  		$this->load->helper('form');
 		$this->load->database();

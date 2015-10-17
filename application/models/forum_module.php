@@ -152,19 +152,15 @@ function sanitizeStringForUrl($string){
 
 		'fcomment_email'=>$this->input->post('fcomment_email'),
 
-		'fcomment_desc'=>$this->input->post('fcomment_desc'),
-
+    'fcomment_desc'=>$this->input->post('fcomment_desc'),
 		);
 
 		//print_r($data);
 
-		$this->db->insert('forum_comment',$data);							
+		$this->db->insert('forum_comment',$data);
 
-	  
 
   }
-
-  
 
   function update_thread()
 
@@ -182,19 +178,19 @@ function sanitizeStringForUrl($string){
 
 	   'forum_modified_date'=>$this->input->post('forum_modified_date'),
 
- 	   'forum_content'=>$this->input->post('forum_content')
+     'forum_content'=>$this->input->post('forum_content'),
+
+     'city_id' => intval($this->session->userdata('city_id')[0]),
 
 	  );
 
- 	  if($this->input->post('threadupdate'))		
-
-	  {		
+ 	  if($this->input->post('threadupdate')){
 
  		$this->db->where('forum_id',$this->input->post('forum_id'));
 
-		$this->db->update('forum',$data);	
+		$this->db->update('forum',$data);
 
- 		return $forum_slug;							
+ 		return $forum_slug;
 
 	  }
 
@@ -248,7 +244,7 @@ function sanitizeStringForUrl($string){
 	$data=array('username'=>$this->input->post('forum_author_name'),'email'=>$this->input->post('forum_author_email'));
 
 		$this->db->insert('login',$data);	
- $id = $this->db->insert_id();		   
+ $id = $this->db->insert_id();
 	   }
 	   
  	$forum_slug = $this->sanitizeStringForUrl($this->input->post('forum_name2'));
@@ -259,10 +255,10 @@ function sanitizeStringForUrl($string){
  	   'forum_modified_date'=>$this->input->post('forum_modified_date'),
  	   'forum_add_date'=>$this->input->post('forum_modified_date'),
  	   'forum_author'=>$id,
- 	   'forum_content'=>$this->input->post('forum_content')
+ 	   'forum_content'=>$this->input->post('forum_content'),
+     'city_id' => intval($this->session->userdata('city_id')[0]),
  	  );
-	  
-	  
+	
 	   if($this->input->post('forum_name2'))		
 	   {		
 			$this->db->insert('forum',$data);	
@@ -291,20 +287,16 @@ function sanitizeStringForUrl($string){
  	   'forum_modified_date'=>$this->input->post('forum_modified_date'),
  	   'forum_add_date'=>$this->input->post('forum_modified_date'),
  	   'forum_author'=>$this->input->post('forum_author'),
- 	   'forum_content'=>$this->input->post('forum_content')
+ 	   'forum_content'=>$this->input->post('forum_content'),
+     'city_id' => intval($this->session->userdata('city_id')[0]),
  	  );
-	   if($this->input->post('forum_name'))		
-	   {		
-			$this->db->insert('forum',$data);	
-			return $forum_slug;						
+	   if($this->input->post('forum_name'))
+	   {
+			$this->db->insert('forum',$data);
+			return $forum_slug;
 	   }
   }
 
-  
-
-   
-
-  
 
   function replysubmit()
 
