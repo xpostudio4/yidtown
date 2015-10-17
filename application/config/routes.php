@@ -42,6 +42,7 @@ $route['default_controller'] = "main";
 $route['page/(:any)'] = "page";
 $route['city'] = "city";
 $route['404_override'] = 'jw404';
+$route['forum/city/(:any)'] = 'forum/city/$1';
 
 
 /* End of file routes.php */

@@ -57,7 +57,23 @@ class Forum extends CI_Controller{
 
 	}
 	
-	
+  public function city($city_slug){
+
+    //configuration
+ 		$this->load->helper('form');
+		$this->load->database();
+ 		$this->load->view('forum/header');
+ 		$this->load->model('forum_module');
+    $this->load->model('citymod');
+
+    $city_id = $this->citymod->get_city_id($city_slug);
+
+    $catdt['catd'] = $this->forum_module->catdata();
+ 		$catdt['forumdata'] = $this->forum_module->forum_city($city_id);
+  	$this->load->view('forum/forum',$catdt);
+		$this->load->view('footer');
+  }
+
 	public function pagin(){
 		$this->load->helper('form');
 

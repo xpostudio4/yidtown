@@ -468,53 +468,61 @@ $formdata=$this->db->get_where('forum_comment',array('forum_id'=>$forum_id))->re
 
 $formdata=$this->db->get_where('forum_comment',array('forum_id'=>$data))->result();	
 
-   	return sizeof($formdata); 
+   	return sizeof($formdata);
 
   }
 
-  
+   function forum_city($city_id){
 
-  
-
-  
-
-  
-
-  
-
-   function forumall()
-
- {
-	 
-$this->db->select('*');
+     $this->db->select('*');
+		 $this->db->where('city_id', $city_id);
      $this->db->order_by("forum_modified_date","desc");
-    $this->db->from('forum');
-    $query=$this->db->get();
-  $forumdata=  $query->result();
- 	 
+     $this->db->from('forum');
+     $query=$this->db->get();
+     $forumdata=  $query->result();
 
-//$forumdata=$this->db->get('forum')->result();
-       for($i=0;$i<sizeof($forumdata);$i++)
 
-  {
- 	 $catname = $this->forumcat($forumdata[$i]->forum_cat); 
-  	 $forum_author_image = $this->myimage($forumdata[$i]->forum_author);
- 	 $fcomment_count = $this->forumcomment_count($forumdata[$i]->forum_id) ;
-  	$newvalue[$i]= array('forum_id'=>$forumdata[$i]->forum_id,'forum_name'=>$forumdata[$i]->forum_name,'forum_slug'=>$forumdata[$i]->forum_slug,'forum_content'=>$forumdata[$i]->forum_content,'forum_add_date'=>$forumdata[$i]->forum_add_date,'forum_modified_date'=>$forumdata[$i]->forum_modified_date,'forum_author_image'=>$forum_author_image,'forumcomment_count'=>$fcomment_count,'catname'=>$catname);
- //	sort($newvalue[$catname]);
-    
- 
-  }
+     for($i=0;$i<sizeof($forumdata);$i++){
 
-   //print_r(sort($newvalue[0]));
- //  echo "<pre>";
- //    print_r($newvalue);
- //  echo "</pre>";
- if(isset($newvalue)):
-   return $newvalue;
-   else:
-   return false;
-   endif;	          
+ 	     $catname = $this->forumcat($forumdata[$i]->forum_cat);
+  	   $forum_author_image = $this->myimage($forumdata[$i]->forum_author);
+ 	     $fcomment_count = $this->forumcomment_count($forumdata[$i]->forum_id) ;
+       $newvalue[$i]= array('forum_id'=>$forumdata[$i]->forum_id,'forum_name'=>$forumdata[$i]->forum_name,'forum_slug'=>$forumdata[$i]->forum_slug,'forum_content'=>$forumdata[$i]->forum_content,'forum_add_date'=>$forumdata[$i]->forum_add_date,'forum_modified_date'=>$forumdata[$i]->forum_modified_date,'forum_author_image'=>$forum_author_image,'forumcomment_count'=>$fcomment_count,'catname'=>$catname);
+
+     }
+
+     if(isset($newvalue)){
+       return $newvalue;
+     }else{
+       return false;
+     }
+
+  
+   }
+
+   function forumall(){
+
+     $this->db->select('*');
+     $this->db->order_by("forum_modified_date","desc");
+     $this->db->from('forum');
+     $query=$this->db->get();
+     $forumdata=  $query->result();
+
+
+     for($i=0;$i<sizeof($forumdata);$i++){
+
+ 	     $catname = $this->forumcat($forumdata[$i]->forum_cat);
+  	   $forum_author_image = $this->myimage($forumdata[$i]->forum_author);
+ 	     $fcomment_count = $this->forumcomment_count($forumdata[$i]->forum_id) ;
+       $newvalue[$i]= array('forum_id'=>$forumdata[$i]->forum_id,'forum_name'=>$forumdata[$i]->forum_name,'forum_slug'=>$forumdata[$i]->forum_slug,'forum_content'=>$forumdata[$i]->forum_content,'forum_add_date'=>$forumdata[$i]->forum_add_date,'forum_modified_date'=>$forumdata[$i]->forum_modified_date,'forum_author_image'=>$forum_author_image,'forumcomment_count'=>$fcomment_count,'catname'=>$catname);
+
+     }
+
+     if(isset($newvalue)){
+       return $newvalue;
+     }else{
+       return false;
+     }
 
  }
 //
