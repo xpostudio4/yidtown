@@ -19,24 +19,24 @@
   document.createElement('nav');
   document.createElement('footer');
 </script>
-<script src="<?php echo JEWISH_URL;?>/js/jquery-1.11.0.min.js" type="text/javascript"></script> 
+<script src="<?php echo JEWISH_URL;?>/js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="<?php echo JEWISH_URL;?>/js/easyResponsiveTabs.js" type="text/javascript"></script>
 
 
-</head> 
+</head>
 
 <body >
 <?php  //$user_log=$this->session->userdata('logged_in');
 //echo $user_log['user_id'];
 ?>
-<?php 
+<?php
  /* DO NOT DELETE*/
   //$city=$this->session->all_userdata( 'city_id');
    ?>
 <?php /*?><script>
 $(document).ready(function() {
 	$('a').on('click',function(e) {
-		 var city=$(".city_select").val(); 
+		 var city=$(".city_select").val();
 		 	 if(city==''){
 		     e.preventDefault();
 		    var full_url=$(this).attr('href');
@@ -65,7 +65,12 @@ $(document).ready(function() {
  <header>
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>"><img src="<?php echo JEWISH_URL;?>/images/logo.png" alt=""></a></figure>
-  <div class="search-bar"><input type="search" placeholder="Search"><input type="submit" value=""></div>
+  <div class="search-bar">
+    <?php echo form_open('/search/classified/', array('method' => 'get')); ?>
+    <input type="search" placeholder="Search">
+    <input type="submit" value="">
+    <?php form_close(); ?>
+  </div>
   <ul>
       <li>
      <?php /*?> <form id="citi" method="post" action="<?php echo JEWISH_URL;?>/main/city_change/?&redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">

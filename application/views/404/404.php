@@ -3,10 +3,15 @@
 <header>
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>/jewish_classified"><img src="http://falconc.com/jewish_classified/images/logo.png" alt=""></a></figure>
-  <div class="search-bar"><input type="search" placeholder="Search"><input type="submit" value=""></div>
+  <div class="search-bar">
+    <?php echo form_open('/search/classified/', array('method' => 'get')); ?>
+    <input type="search" placeholder="Search">
+    <input type="submit" value="">
+    <?php form_close(); ?>
+  </div>
   <ul>
       <li>
-      
+
       </li>
 <!--      <li><span>lac</span></li>
       <li><span>la</span></li>

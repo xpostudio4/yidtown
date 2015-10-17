@@ -65,7 +65,12 @@ $(document).ready(function() {
  <header>
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>"><img src="<?php echo JEWISH_URL;?>/images/logo.png" alt=""></a></figure>
-  <div class="search-bar"><input type="search" placeholder="Search"><input type="submit" value=""></div>
+  <div class="search-bar">
+    <?php echo form_open('/search/classified/', array('method' => 'get')); ?>
+    <input type="search" placeholder="Search">
+    <input type="submit" value="">
+    <?php form_close(); ?>
+  </div>
   <ul>
       <li>
       <form id="citi" method="post" action="<?php echo JEWISH_URL;?>/main/city_change/?&redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
