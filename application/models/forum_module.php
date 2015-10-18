@@ -62,53 +62,70 @@ if(isset($forumdata[0]->username)){
 
 
 
-   function forumid($slug)	
+   function forumid($slug)
 
  {
 
-  $forumdata=$this->db->get_where('forum',array('forum_slug'=>$slug))->result();	
+  $forumdata=$this->db->get_where('forum',array('forum_slug'=>$slug))->result();
 
   return $forumdata[0]->forum_id;
 
  }
 
+ function search_forums($keyword){
+  $query =  $this->db->query("SELECT * FROM forum
+                    WHERE forum_name LIKE '%{$keyword}%' OR forum_content LIKE '%{$keyword}%'
+                    ORDER BY forum_modified_date DESC");
 
+  $forumdata = $query->result();
+
+  for($i=0;$i<sizeof($forumdata);$i++){
+
+    $catname = $this->forumcat($forumdata[$i]->forum_cat);
+    $forum_author_image = $this->myimage($forumdata[$i]->forum_author);
+    $fcomment_count = $this->forumcomment_count($forumdata[$i]->forum_id) ;
+    $newvalue[$i]= array('forum_id'=>$forumdata[$i]->forum_id,'forum_name'=>$forumdata[$i]->forum_name,'forum_slug'=>$forumdata[$i]->forum_slug,'forum_content'=>$forumdata[$i]->forum_content,'forum_add_date'=>$forumdata[$i]->forum_add_date,'forum_modified_date'=>$forumdata[$i]->forum_modified_date,'forum_author_image'=>$forum_author_image,'forumcomment_count'=>$fcomment_count,'catname'=>$catname);
+
+  }
+
+  if(isset($newvalue)){
+    return $newvalue;
+  }else{
+    return false;
+  }
+
+
+ }
 
  function forumcat($id)
 
  {
 
-  $forumdata=$this->db->get_where('forum_cat',array('f_cat_id'=>$id))->result();	
+  $forumdata=$this->db->get_where('forum_cat',array('f_cat_id'=>$id))->result();
 
  return $forumdata[0]->f_cat_name;
 
  }
 
- 
+
 
  function forumdata($data)
 
  {
 
-$formdata=$this->db->get_where('forum',array('forum_slug'=>$data))->result();	
+$formdata=$this->db->get_where('forum',array('forum_slug'=>$data))->result();
 
-	 $catname = $this->forumcat($formdata[0]->forum_cat); 
+	 $catname = $this->forumcat($formdata[0]->forum_cat);
 
- 	 $forum_author_image = $this->myimage($formdata[0]->forum_author); 
+ 	 $forum_author_image = $this->myimage($formdata[0]->forum_author);
 
- 	 $forum_author = $this->author($formdata[0]->forum_author); 
+ 	 $forum_author = $this->author($formdata[0]->forum_author);
 
 	// echo $forum_author_image;
 
 	$newvalue= array('forum_id'=>$formdata[0]->forum_id,'forum_name'=>$formdata[0]->forum_name,'forum_slug'=>$formdata[0]->forum_slug,'forum_content'=>$formdata[0]->forum_content,'forum_add_date'=>$formdata[0]->forum_add_date,'forum_modified_date'=>$formdata[0]->forum_modified_date,'forum_author_image'=>$forum_author_image,'forum_author'=>$forum_author,'forum_cat'=>$formdata[0]->forum_cat,'forum_author_id'=>$formdata[0]->forum_author);
 
- 	  
-
- 	return $newvalue; 
-
-	 
-
-	 
+ 	return $newvalue;
 
  }
 
