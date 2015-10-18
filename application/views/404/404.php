@@ -4,8 +4,8 @@
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>/jewish_classified"><img src="http://falconc.com/jewish_classified/images/logo.png" alt=""></a></figure>
   <div class="search-bar">
-    <?php echo form_open('/search/classified/', array('method' => 'get')); ?>
-    <input type="search" placeholder="Search">
+    <?php echo form_open('/search'); ?>
+    <input type="search" placeholder="Search" name="search">
     <input type="submit" value="">
     <?php form_close(); ?>
   </div>

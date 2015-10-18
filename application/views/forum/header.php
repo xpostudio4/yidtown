@@ -80,7 +80,7 @@ $(document).ready(function() {
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>"><img src="<?php echo JEWISH_URL;?>/images/logo.png" alt=""></a></figure>
   <div class="search-bar">
-    <?php echo form_open('/search/classified/', array('method' => 'get')); ?>
+    <?php echo form_open('/search'); ?>
     <input type="search" placeholder="Search">
     <input type="submit" value="">
     <?php form_close(); ?>
