@@ -11,7 +11,7 @@ class Classified extends CI_Controller {
 		$this->load->model('postmod');
 		$this->load->library('allencode');
 			$k=$this->postmod->current_date();
-	
+
 		foreach($k as $v){
 				$get_all=$this->postmod->select_all_image_name($v['post_id']);
 						for($i=0;$i<sizeof($get_all);$i++){
@@ -25,7 +25,7 @@ class Classified extends CI_Controller {
 			$query = $this->db->query("DELETE FROM `event_post_meta` WHERE `post_id`='".$v['post_id']."'");
 			$query = $this->db->query("DELETE FROM `category_post_relationship` WHERE `post_id`='".$v['post_id']."'");
 		}
-	}	
+  }
 	public function index()
 	{
 		$this->load->helper('form');
@@ -33,22 +33,22 @@ class Classified extends CI_Controller {
 		$this->load->model('postmod');
         $this->load->view('header');
 		$this->load->view('classified');
-		$this->load->view('footer');	
+		$this->load->view('footer');
 		}
 	public function housing(){
 		$this->load->view('header');
 		$this->load->view('classified',array('type'=>'housing'));
-		$this->load->view('footer');	
+		$this->load->view('footer');
 	}
 	public function job(){
 		$this->load->view('header');
 		$this->load->view('classified',array('type'=>'job'));
-		$this->load->view('footer');	
+		$this->load->view('footer');
 	}
 	public function event(){
 		$this->load->view('header');
 		$this->load->view('classified',array('type'=>'event'));
-		$this->load->view('footer');	
+		$this->load->view('footer');
 	}
 	function search(){
 		/*===========================*/

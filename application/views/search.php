@@ -17,12 +17,12 @@
 <div style="clear:both;border-bottom:1px #ccc solid"><br></div>
 <div class="content-left">
  <section class="forums-post">
- <h3>Forums (<?php echo count($forums);?> <?php if(count($forums) == 1){ echo "result";}else{ echo "results";} ?>)</h3>
+ <h3>Forums (<?php if($forums){ echo count($forums);} else { echo "0";};?> <?php if(count($forums) == 1){ echo "result";}else{ echo "results";} ?>)</h3>
 
  <div id="paging_container1" class="container">
 
    <ul class="alt_content">
-       <?php foreach($forums as $thread){ ?>
+       <?php if($forums){ foreach($forums as $thread){ ?>
        <li style="display: list-item;float: none;">
          <h4>
             <a href="http://yidtown.com/forum/questions/<?php echo $thread['forum_slug']; ?>">
@@ -35,12 +35,32 @@
          </h5>
 
        </li>
+      <?php }}else{ ?>
+      <li><span> There are no results on Forums for this term </span></li>
       <?php } ?>
     </ul>
 
  </div>
 
 </section>
+<div id="tab-1" class="tab-content">
+ <h3>Jobs (<?php if($jobs){ echo count($jobs);} else { echo "0";};?> <?php if(count($jobs) == 1){ echo "result";}else{ echo "results";} ?>)</h3>
+    <ul class="list-v">
+       <?php if($jobs){ foreach($jobs as $thread){ ?>
+       <a href="/classified/single_job/<?php echo $this->allencode->encode($thread['id']); ?>" style="display: inline;">
+        <li>
+          <img src="http://yidtown.com/images/star1.png" alt=""><?php echo explode(" ", $thread['post_date'])[0]; ?>
+ <strong><?php echo $thread['post_title']; ?></strong>
+   Area -<?php echo $thread['state']; ?>
+        </li>
+      </a>
+
+      <?php }}else{ ?>
+      <li><span> There are no results on Forums for this term </span></li>
+      <?php } ?>
+
+    </ul>
+</div>
 
 </div>
 

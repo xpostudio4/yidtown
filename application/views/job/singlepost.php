@@ -225,7 +225,7 @@ foreach ($q->result_array() as $img){ ?>
 
              <a href="<?php echo JEWISH_URL;?>/login/redirect/?redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>"  title="Log in to create Private Message"><input type="submit" value="Message to Advertiser" name="submtadd" class=""></a>
 
-             <?php } ?>
+
 
              <p id="msp"></p>
 
@@ -243,6 +243,7 @@ foreach ($q->result_array() as $img){ ?>
 
               <input type="submit" name="b_submit" value="Submit" id="b_submity">
 
+             <?php } ?>
               </form>
 
                 </div>

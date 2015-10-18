@@ -154,7 +154,33 @@ class Postmod extends CI_Model{
 			$query = $this->db->query("DELETE FROM `category_post_relationship` WHERE `post_id`='".$post_id."'");
 			$query = $this->db->query("DELETE FROM `images` WHERE `post_id`='".$post_id."'");
 			
-	   }
+     }
+
+     function search_jobs($keyword){
+       $query = $this->db->query("SELECT * FROM `post` LEFT JOIN `job_post_meta` on post.id = job_post_meta.post_id
+                                  WHERE post_title LIKE '%{$keyword}%' OR compensation LIKE '%{$keyword}%'");
+       $data = $query->result();
+
+       for($i=0;$i< sizeof($data); $i++){
+
+         if(intval($data[$i]->post_id) > 0){
+
+           $newvalue[$i]= array('post_title' => $data[$i]->post_title,
+                                'post_date' => $data[$i]->post_date,
+                                'post_content' => $data[$i]->post_content,
+                                'compensation' => $data[$i]->compensation,
+                                'id' => intval($data[$i]->post_id),
+                                'state' => $data[$i]->state);
+         }
+       }
+
+       if(isset($newvalue)){
+          return $newvalue;
+       }else{
+        return false;
+       }
+     }
+
 	   function current_date(){
 		   		$query = $this->db->query("SELECT `post_id` FROM `event_post_meta` WHERE full_date < CURDATE()");
 				return $query->result_array();

@@ -7,7 +7,8 @@ class Search extends CI_Controller{
 		  $this->load->model('citymod');
 		  $this->load->library("session");
 		  $this->load->helper('form');
-		  $this->load->database();
+      $this->load->database();
+      $this->load->library('allencode');
 
 	}
 
@@ -15,7 +16,8 @@ class Search extends CI_Controller{
     $keyword = $this->input->post('search');
 
 
-		$this->load->library("session");
+    $this->load->library("session");
+    $this->load->library('allencode');
 		$this->load->helper('form');
     $this->load->database();
     $this->load->model('forum_module');
@@ -23,9 +25,9 @@ class Search extends CI_Controller{
 
     $data['keyword'] = $keyword;
     $data['forums'] = $this->forum_module->search_forums($keyword);
-    //$this->postmod->search_jobs($keyword);
-    //$this->postmod->search_housing($keyword);
-    //$this->postmod->search_events($keyword);
+    $data['jobs'] = $this->postmod->search_jobs($keyword);
+    //$data['housing'] = $this->postmod->search_housing($keyword);
+    //$data['events'] = $this->postmod->search_events($keyword);
 
 		$this->load->view('header');
 		$this->load->view('search', $data);
