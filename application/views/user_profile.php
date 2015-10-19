@@ -5,166 +5,154 @@
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
- 
+
  <script>
- jQuery(document).ready(function(e){
-	 
-	 
-   jQuery( "#tabs" ).tabs();
-   jQuery('.edituser').click(function(){
-   jQuery(".info").hide();	
-   jQuery(".addinformation").show();	
-  	 });
-	$('.mydata').click(function(e){
 
-		//alert($(this).attr('id'));
+   jQuery(document).ready(function(e){
 
-		var mdata = $(this).attr('id');
+     jQuery( "#tabs" ).tabs();
+     jQuery('.edituser').click(function(){
 
-		var txt;
-		
-$( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height:140,
-      modal: true,
-      buttons: {
-        "Yes": function() {
-          $( this ).dialog( "close" );
-		
-		
-		
-		
-		
+       jQuery(".info").hide();
+       jQuery(".addinformation").show();
 
- 
-			$(".loader").show();
+     });
 
-			$.ajax({
+	   $('.mydata').click(function(e){
 
-				type: 'post',
+		   var mdata = $(this).attr('id');
+		   var txt;
 
-				url: "<?php echo site_url('forum/threaddelete'); ?>",
+       $( "#dialog-confirm" ).dialog({
+         resizable: false,
+         height:140,
+         modal: true,
+         buttons: {
+          "Yes": function() {
 
-				data: 'mdata='+mdata,
+            $( this ).dialog( "close" );
+  			    $(".loader").show();
 
-				success: function (data) {
+			      $.ajax({
 
-				// alert(data);
+			      	type: 'post',
 
-				$(".loader").hide();
+			      	url: "<?php echo site_url('forum/threaddelete'); ?>",
 
-				$('#'+data).hide();
+			      	data: 'mdata='+mdata,
 
-				$("#forums-post"+mdata).hide();
+			      	success: function (data) {
 
-			//	alert('The thread hasbeen deleted successfully');
-				//location.reload();
-				}
+			      	$(".loader").hide();
 
-			});
+			      	$('#'+data).hide();
 
- 		        },
+			      	$("#forums-post"+mdata).hide();
 
-		
-        No: function() {
-          $( this ).dialog( "close" );
+			      	}
+
+			     });
+
+ 		      },
+
+          No: function() {
+            $( this ).dialog( "close" );
+          }
         }
-      }
-    });		
-		
-		
-		
-		
-  	 });
-	 
-	 
-	 
-	 
-	 
-	 
+      });
+
+
+    });
+
+
 	jQuery("#updateform").on('submit', function (e) {
-		//alert($(".myform").attr('title'));
+
  		e.preventDefault();
 		var kdd = jQuery("#updateform").serialize();
-		//alert(kdd);
- 			jQuery.ajax({
-				type: 'post',
-				url: "<?php echo site_url('myaccount/updateuser'); ?>",
-				data: jQuery('#updateform').serialize(),
-				success: function (data) {
-				 	//alert(data);
-			$( "#profileupdate" ).dialog({
-      resizable: false,
-      height:140,
-      modal: true,
-      buttons: {
-        "Ok": function() {
-          $( this ).dialog( "close" );
-		location.reload();
-		}} });					
-					
-//alert('Your profile hasbeen updated');
-				//$("#preview_form").resetForm();
-				}
-			});	});	 
-		 jQuery("profile").hide();
-	 jQuery(".profimage").hover(function(){
-		 
-		 jQuery("profile").show()
-		 });
- 
-$("#uploadForm").on('submit',(function(e){
-$(".loader2").show();	
-e.preventDefault();
-$.ajax({
-url: "<?php echo site_url('myaccount/uploadimage'); ?>",
-type: "POST",
-data:  new FormData(this),
-contentType: false,
-cache: false,
-processData:false,
-success: function(data){
-$(".profimage").attr('src','<?php echo JEWISH_URL;?>/'+data);
+ 	  jQuery.ajax({
+	  	type: 'post',
+		  url: "<?php echo site_url('myaccount/updateuser'); ?>",
+			data: jQuery('#updateform').serialize(),
+			success: function (data) {
 
-$(".loader2").hide();	
- $("#ontext").show();
-	 $('.btnSubmit').hide();	
-},
-error: function(){} 	        
-});
-})); 		 
-		 
-	$("#ontext").click(function(){
-	 $('.btnSubmit').show();	
-		
-		
-	});	 
-		 
-		 
-	 
+		    $( "#profileupdate" ).dialog({
+          resizable: false,
+          height:140,
+          modal: true,
+          buttons: {
+            "Ok": function() {
+              $( this ).dialog( "close" );
+		          location.reload();
+            }
+          }
+        });
+
+		  }
+
+    });
+  });
+
+  jQuery("profile").hide();
+  jQuery(".profimage").hover(function(){
+
+	  jQuery("profile").show()
+
 	});
+
+$("#uploadForm").on('submit',(function(e){
+  $(".loader2").show();
+  e.preventDefault();
+
+  $.ajax({
+    url: "<?php echo site_url('myaccount/uploadimage'); ?>",
+    type: "POST",
+    data:  new FormData(this),
+    contentType: false,
+    cache: false,
+    processData:false,
+    success: function(data){
+
+      $(".profimage").attr('src','<?php echo JEWISH_URL;?>/'+data);
+
+      $(".loader2").hide();
+      $("#ontext").show();
+	    $('.btnSubmit').hide();
+    },
+    error: function(){}
+  });
+}));
+
+	$("#ontext").click(function(){
+	  $('.btnSubmit').show();
+	});
+
+
+  });
+
 function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+  if (input.files && input.files[0]) {
 
-            reader.onload = function (e) {
-                $('.profimage')
-                    .attr('src', e.target.result)
-                    .width(100);
- 			$("#ontext").hide();
-					
-            };
+    var reader = new FileReader();
 
-            reader.readAsDataURL(input.files[0]);
-        }
-    } </script>
+    reader.onload = function (e) {
+      $('.profimage')
+          .attr('src', e.target.result)
+          .width(100);
+      $("#ontext").hide();
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  }
+}
+</script>
 
  <?php
             if(!isset($user_image)){
  		     redirect('myaccount', 'refresh');
 			 break;
 			  }					/*========================================*/
- 
+
  ?>
 <div style="display:none" id="dialog-confirm" >
   <p>Do you really want to delete this thread?</p>
@@ -255,8 +243,8 @@ function readURL(input) {
 			  $user = unserialize($userinformation);
 			}
 			?>
-            
-            
+
+
              <ul>
               <li>
               <label>Nickname : </label>
@@ -280,14 +268,18 @@ function readURL(input) {
               <div class="inform"><?php if($user['country']){echo $user['country']; }else{ echo 'none'; }?></div>
               </li>
               <li>
-              <label>About : </label>
-              <div class="inform"><?php if($user['about']){echo $user['about']; }else{ echo 'none'; }?></div>
-               </li>
+                <label>About : </label>
+                <div class="inform"><?php if($user['about']){echo $user['about']; }else{ echo 'none'; }?></div>
+              </li>
+              <li>
+                <label>Email<br/>Preference : </label>
+                <div class="inform"><?php if($email_preference){echo $email_preference; }else{ echo 'Weekly'; }?></div>
+              </li>
              </ul>
              </div>
-           <div class="addinformation"  style="display:none"> 
+           <div class="addinformation"  style="display:none">
            <form action="" method="post" id="updateform" enctype="multipart/form-data">
-            <ul>  
+            <ul>
               <li>
               <label>Nickname : </label><i id="response" ></i>
               <input type="text" name="username" id="username" value="<?php if($user['username']){echo $user['username']; }else{ $ar=$this->modlogin->fetch_username($user_log['user_id']);
@@ -310,25 +302,37 @@ function readURL(input) {
               <input type="text" name="country" id="country" value="<?php echo $user['country']; ?>" />
               </li>
               <li>
-              <label>About : </label>
-              <textarea name="about" id="about"><?php echo $user['about']; ?></textarea>
-               </li>
+                <label>About : </label>
+                <textarea name="about" id="about"><?php echo $user['about']; ?></textarea>
+              </li>
+              <li>
+                <label>Email<br/>Preference : </label>
+                <?php
+                  $options = array(
+                    'weekly' => 'weekly',
+                    'monthly' => 'monthly',
+                    'no email' => 'no emails'
+                  );
+
+                  if(isset($email_preference)){
+                   $preference =  $email_preference;
+                  }else{
+                   $preference = 'weekly';
+                  }
+
+                 echo form_dropdown('email_preference', $options, $preference, 'id="email_preference"');
+                ?>
+              </li>
                <li><input type="submit" name="update" value="Update" id="updaty"/> </li>
-            
-            
-            
             </ul>
            </form>
-                   
-           
-           
-           
+
            </div>
-           
-           
-            
-           
-         
+
+
+
+
+
          </article>
          <br />
 <div id="tabs">

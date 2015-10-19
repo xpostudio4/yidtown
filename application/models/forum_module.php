@@ -213,9 +213,7 @@ function sanitizeStringForUrl($string){
 
   }
 
-  function updateuser()
-
-  {
+  function updateuser(){
 
   	  $userinfor=array(
 
@@ -227,25 +225,26 @@ function sanitizeStringForUrl($string){
 
 	   'state'=>$this->input->post('state'),
 
- 	   'about'=>$this->input->post('about')
+ 	   'about'=>$this->input->post('about'),
 
 	  );
 
-	   $userinformation = serialize($userinfor);
 
-	  $data=array('userinformation'=>$userinformation,'username'=>$this->input->post('username'),
+	  $userinformation = serialize($userinfor);
+
+    $data=array('userinformation'=>$userinformation,
+                'username'=>$this->input->post('username'),
+                'email_preference'=> $this->input->post('email_preference')
 
 	  );
 
-	  
 
-  		$this->db->where('email',$this->input->post('email'));
 
-		$this->db->update('login',$data);	
+    $this->db->where('email',$this->input->post('email'));
 
- 		return 1;							
+		$this->db->update('login',$data);
 
- 	  
+ 		return 1;
 
   }
 
