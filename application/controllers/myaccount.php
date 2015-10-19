@@ -31,7 +31,7 @@ class Myaccount extends CI_Controller {
  		    $formdata=$this->db->get_where('login',array('email'=>$user_log['email']));
         $data=$formdata->result();
         $vr= (array) $data[0];
-        var_dump($vr);
+
 		    $catdt['user_image']=$vr['user_image'];
 		    $catdt['userinformation']=$vr['userinformation'];
         $catdt['email_preference'] = $vr['email_preference'];

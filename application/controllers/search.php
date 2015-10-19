@@ -23,11 +23,26 @@ class Search extends CI_Controller{
     $this->load->model('forum_module');
     $this->load->model('postmod');
 
-    $data['keyword'] = $keyword;
-    $data['forums'] = $this->forum_module->search_forums($keyword);
-    $data['jobs'] = $this->postmod->search_jobs($keyword);
-    $data['housing'] = $this->postmod->search_housing($keyword);
-    $data['events'] = $this->postmod->search_events($keyword);
+    if($keyword == ""){
+
+      $data = array(
+        'keyword' => FALSE,
+        'forums' => FALSE,
+        'jobs' => FALSE,
+        'housing' => FALSE,
+        'events' => FALSE
+      );
+
+    }else{
+
+      $data = array(
+        'keyword' => $keyword,
+        'forums' => $this->forum_module->search_forums($keyword),
+        'jobs' => $this->postmod->search_jobs($keyword),
+        'housing' => $this->postmod->search_housing($keyword),
+        'events' => $this->postmod->search_events($keyword)
+      );
+    }
 
 		$this->load->view('header');
 		$this->load->view('search', $data);

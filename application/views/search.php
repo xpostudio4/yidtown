@@ -87,7 +87,7 @@
 
     <li><a href="<?php echo JEWISH_URL;?>">Search Term></a></li>
 
-     <li><?php if(isset($keyword)){ echo $keyword; } ?></li>
+     <li><?php if($keyword){ echo '"'.$keyword.'"'; }else{ echo "no term was used for this search"; } ?></li>
 
     <?php /*?><li>><a href="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>"><?php //echo $this->postmod->get_single_catname($_GET['cat_id']);?></a></li><?php */?>
 
