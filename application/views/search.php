@@ -130,7 +130,7 @@
          <li>
            <img src="http://yidtown.com/images/star1.png" alt=""><?php echo explode(" ", $thread['post_date'])[0]; ?>
   <strong><?php echo $thread['post_title']; ?></strong>
-    Area -<?php echo $thread['state']; ?>
+    Area -<?php  echo  $this->citymod->fetch_single_city($thread['geo_area']);?>
          </li>
        </a>
 
@@ -151,22 +151,45 @@
         <a href="/classified/single_housing/<?php echo $this->allencode->encode($thread['id']); ?>" style="display: inline;">
          <li>
            <img src="http://yidtown.com/images/star1.png" alt=""><?php echo explode(" ", $thread['post_date'])[0]; ?>
-  <strong><?php echo $thread['post_title']; ?></strong>
-          -($<?php echo $thread['ask']; ?>)
-          -(<?php echo $thread['sqft']; ?>ft<sup>2</sup>)
-    Area -<?php echo $thread['state']; ?>
+           <strong><?php echo $thread['post_title']; ?></strong>
+           -($<?php echo $thread['ask']; ?>)
+           -(<?php echo $thread['sqft']; ?>ft<sup>2</sup>)
+           Area -<?php  echo  $this->citymod->fetch_single_city($thread['geo_area']);?>
          </li>
        </a>
 
        <?php }}else{ ?>
 
-       <li><span> There are no results on Forums for this term </span></li>
+       <li><span> There are no results on Housing for this term </span></li>
 
        <?php } ?>
 
      </ul>
 
  </div>
+ <div style="clear:both;border-bottom:1px #ccc solid"><br></div>
+ <div id="tab-1" class="tab-content">
+   <h3>Events (<?php if($events){ echo count($events);} else { echo "0";};?> <?php if(count($events) == 1){ echo "result";}else{ echo "results";} ?>)</h3>
+   <ul class="list-v">
+         <?php if($events){ foreach($events as $thread){ ?>
+
+        <a href="/classified/single_event/<?php echo $this->allencode->encode($thread['id']); ?>" style="display: inline;">
+         <li>
+           <img src="http://yidtown.com/images/star1.png" alt=""><?php echo explode(" ", $thread['post_date'])[0]; ?>
+           <strong><?php echo $thread['post_title']; ?></strong>
+           Area -<?php  echo  $this->citymod->fetch_single_city($thread['geo_area']);?>
+         </li>
+       </a>
+
+       <?php }}else{ ?>
+
+       <li><span> There are no results on events for this term </span></li>
+
+       <?php } ?>
+
+  </ul>
+ </div>
+
 </section>
 </div>
 
@@ -174,3 +197,4 @@
 
 <div class="event-right">
 
+</div>

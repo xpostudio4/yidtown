@@ -168,6 +168,7 @@ class Postmod extends CI_Model{
            $newvalue[$i]= array('post_title' => $data[$i]->post_title,
                                 'post_date' => $data[$i]->post_date,
                                 'post_content' => $data[$i]->post_content,
+                                'geo_area' => $data[$i]->geo_area,
                                 'compensation' => $data[$i]->compensation,
                                 'id' => intval($data[$i]->post_id),
                                 'state' => $data[$i]->state);
@@ -193,7 +194,34 @@ class Postmod extends CI_Model{
            $newvalue[$i]= array('post_title' => $data[$i]->post_title,
                                 'post_date' => $data[$i]->post_date,
                                 'post_content' => $data[$i]->post_content,
+                                'geo_area' => $data[$i]->geo_area,
                                 'sqft' => $data[$i]->sqft,
+                                'ask' => $data[$i]->ask,
+                                'id' => intval($data[$i]->post_id),
+                                'state' => $data[$i]->state);
+         }
+       }
+
+       if(isset($newvalue)){
+          return $newvalue;
+       }else{
+        return false;
+       }
+     }
+
+     function search_events($keyword){
+       $query = $this->db->query("SELECT * FROM `post` LEFT JOIN `event_post_meta` on post.id = event_post_meta.post_id
+                                  WHERE post_title LIKE '%{$keyword}%' OR post_content LIKE '%{$keyword}%'");
+       $data = $query->result();
+
+       for($i=0;$i< sizeof($data); $i++){
+
+         if(intval($data[$i]->post_id) > 0){
+
+           $newvalue[$i]= array('post_title' => $data[$i]->post_title,
+                                'post_date' => $data[$i]->post_date,
+                                'post_content' => $data[$i]->post_content,
+                                'geo_area' => $data[$i]->geo_area,
                                 'ask' => $data[$i]->ask,
                                 'id' => intval($data[$i]->post_id),
                                 'state' => $data[$i]->state);

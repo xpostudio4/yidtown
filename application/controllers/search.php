@@ -27,7 +27,7 @@ class Search extends CI_Controller{
     $data['forums'] = $this->forum_module->search_forums($keyword);
     $data['jobs'] = $this->postmod->search_jobs($keyword);
     $data['housing'] = $this->postmod->search_housing($keyword);
-    //$data['events'] = $this->postmod->search_events($keyword);
+    $data['events'] = $this->postmod->search_events($keyword);
 
 		$this->load->view('header');
 		$this->load->view('search', $data);

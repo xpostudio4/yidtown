@@ -550,7 +550,7 @@ $q_m=$this->db->get_where('post', array('id'=>$art[$i],/*'object_id' => $cat_id,
  foreach($q_m->result_array() as $k=>$v){?>
 <a href="<?php echo JEWISH_URL;?>/classified/single_event/<?php echo $this->allencode->encode($v['id']);?>"><li><img src="<?php echo JEWISH_URL;?>/images/star1.png" alt=""><?php  $yrdata= strtotime($v['post_date']); echo date('m/d/Y', $yrdata);//date('jS F Y', $yrdata);?><strong><?php echo $v['post_title'];?></strong>
  Area -<?php  echo  $this->citymod->fetch_single_city($v['geo_area']);?></li></a>
-<?php } 
+<?php }
 }?>
 
 
