@@ -15,6 +15,6 @@ class Select extends CI_Controller {
 	function index(){
 		$this->load->view('header');
 		$this->load->view('miscellaneous/city');
-		$this->load->view('footer');		
+		$this->load->view('footer');
 	}
 }

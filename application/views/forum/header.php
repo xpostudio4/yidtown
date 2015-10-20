@@ -80,14 +80,26 @@ $(document).ready(function() {
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>"><img src="<?php echo JEWISH_URL;?>/images/logo.png" alt=""></a></figure>
   <div class="search-bar">
-    <?php echo form_open('/search'); ?>
+    <form name="search" method="post"  action='/search'>
     <input type="search" placeholder="Search">
     <input type="submit" value="">
-    <?php form_close(); ?>
+    </form>
   </div>
   <ul>
       <li>
-      <form id="citi" method="post" action="<?php echo JEWISH_URL;?>/main/city_change/?&redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
+     <?php
+       function startsWith($haystack, $needle) {
+       // search backwards starting from haystack length characters from the end
+         return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+       }
+
+       if(startsWith($_SERVER['REQUEST_URI'], '/forum/city/')){
+         $url = '/main/city_change/?&redirect=http://'.$_SERVER['HTTP_HOST'].'/forum/';
+       }else{
+         $url = '/main/city_change/?&redirect=http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+       }
+      ?>
+        <form id="citi" method="post" action="<?php echo JEWISH_URL;?><?php echo $url; ?>">
       <select name="city_id" class="city_select" onChange="this.form.submit();">
       <option value="">Select City</option>
       <?php $get_city=$this->citymod->fetch_city();

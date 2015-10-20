@@ -9,7 +9,7 @@
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<script>console.log('view/forum/header.php')</script>
+<script>console.log('view/header.php')</script>
 <script>
   document.createElement('header');
   document.createElement('section');
@@ -18,31 +18,31 @@
   document.createElement('nav');
   document.createElement('footer');
 </script>
-<script src="<?php echo JEWISH_URL;?>/js/jquery-1.11.0.min.js" type="text/javascript"></script> 
+<script src="<?php echo JEWISH_URL;?>/js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="<?php echo JEWISH_URL;?>/js/easyResponsiveTabs.js" type="text/javascript"></script>
 
 
-</head> 
+</head>
 
 <body >
 <?php  $user_log=$this->session->userdata('logged_in');
 //echo $user_log['user_id'];
 ?>
-<?php 
+<?php
  /* DO NOT DELETE*/
   $city=$this->session->all_userdata( 'city_id');
    ?>
 <script>
 $(document).ready(function() {
 	$('a').on('click',function(e) {
-		 var city=$(".city_select").val(); 
+		 var city=$(".city_select").val();
 		 	 if(city==''){
 		     e.preventDefault();
 			<?php /*?> var full_url="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>";<?php */?>
 		    var full_url=$(this).attr('href');
 			 window.location = "<?php echo JEWISH_URL;?>/city/select/?redirect="+full_url;
 			 }else{
-				
+
 			 }
 		});
 	$(".city_select option[value='<?php if(!isset($city['city_id'][0])){ echo '';}?>']").attr('selected','selected');
@@ -66,18 +66,18 @@ $(document).ready(function() {
  <div class="container">
   <figure class="logo"><a href="<?php echo JEWISH_URL;?>"><img src="<?php echo JEWISH_URL;?>/images/logo.png" alt=""></a></figure>
   <div class="search-bar">
-    <?php echo form_open('/search'); ?>
+    <form name="search" method="post"  action='/search'>
     <input type="search" placeholder="Search" name="search">
     <input type="submit" value="">
-    <?php form_close(); ?>
+    </form>
   </div>
   <ul>
       <li>
-      <form id="citi" method="post" action="<?php echo JEWISH_URL;?>/main/city_change/?&redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
+      <form id="citi" method="post" action="<?php echo JEWISH_URL;?>/main/city_change/?&redirect=<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];?>">
       <select name="city_id" class="city_select" onChange="this.form.submit();">
       <option value="">Select City</option>
       <?php $get_city=$this->citymod->fetch_city();
-	  foreach($get_city as $v){?>
+	    foreach($get_city as $v){?>
       <option value="<?php echo $v['id']?>" ><?php echo $v['name']?></option>
       <?php }?>
       </select>
@@ -98,11 +98,11 @@ $(document).ready(function() {
             <li><a href="<?php echo JEWISH_URL;?>/classified/search/housing/" title="Housing">Housing</a></li>
             <li><a href="<?php echo JEWISH_URL;?>/classified/search/job/" title="Jobs">Jobs</a></li>
             <li><a href="<?php echo JEWISH_URL;?>/classified/search/event/" title="Events">Events</a></li>
-  
+
               <?php
 	  $user_log=$this->session->userdata('logged_in');
 		if(!isset($user_log['user_id'])){
-	  ?> 
+	  ?>
       <li class="account" style="margin-left:25%;"><a href="<?php echo JEWISH_URL;?>/login/">Login or Create Account</a></li>
       <li><a href="<?php echo JEWISH_URL;?>/login/redirect/?redirect=<?php echo JEWISH_URL;?>/myaccount/classified_message/received/"><img src="<?php echo JEWISH_URL;?>/images/messager.png"/></a></li>
       <?php }else{ ?>
@@ -121,7 +121,7 @@ $(document).ready(function() {
             width: 'auto',
             fit: true
         });
-		
+
 	$.ajax({
 			type: 'post',
 			url: "<?php echo site_url('forum/sidebar'); ?>",
@@ -135,7 +135,7 @@ $(document).ready(function() {
 //			alert('The thread hasbeen deleted successfully');
  			}
     });
-		
-		
+
+
     });
 </script>
